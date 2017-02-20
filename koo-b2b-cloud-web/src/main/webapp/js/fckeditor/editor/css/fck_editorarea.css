@@ -1,0 +1,131 @@
+/*
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2009 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * This is the default CSS file used by the editor area. It defines the
+ * initial font of the editor and background color.
+ *
+ * A user can configure the editor to use another CSS file. Just change
+ * the value of the FCKConfig.EditorAreaCSS key in the configuration
+ * file.
+ */
+
+/**
+ * The "body" styles should match your editor web site, mainly regarding
+ * background color and font family and size.
+ */
+
+body
+{
+	background-color: #ffffff;
+	padding: 5px 5px 5px 5px;
+	margin: 0px;
+}
+
+body, td
+{
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+a[href]
+{
+	color: -moz-hyperlinktext !important;		/* For Firefox... mark as important, otherwise it becomes black */
+	text-decoration: -moz-anchor-decoration;	/* For Firefox 3, otherwise no underline will be used */
+}
+
+/**
+ * Just uncomment the following block if you want to avoid spaces between
+ * paragraphs. Remember to apply the same style in your output front end page.
+ */
+
+/*
+p, ul, li
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+*/
+
+/**
+ * Uncomment the following block, or only selected lines if appropriate,
+ * if you have some style items that would break the styles combo box.
+ * You can also write other CSS overrides inside the style block below
+ * as needed and they will be applied to inside the style combo only.
+ */
+
+/*
+.SC_Item *, .SC_ItemSelected *
+{
+	margin: 0px !important;
+	padding: 0px !important;
+	text-indent: 0px !important;
+	clip: auto !important;
+	position: static !important;
+}
+*/
+
+/**
+ * The following are some sample styles used in the "Styles" toolbar command.
+ * You should instead remove them, and include the styles used by the site
+ * you are using the editor in.
+ */
+
+.Bold
+{
+	font-weight: bold;
+}
+
+.Title
+{
+	font-weight: bold;
+	font-size: 18px;
+	color: #cc3300;
+}
+
+.Code
+{
+	border: #8b4513 1px solid;
+	padding-right: 5px;
+	padding-left: 5px;
+	color: #000066;
+	font-family: 'Courier New' , Monospace;
+	background-color: #ff9933;
+}
+.tb1{padding:0 3px;background:rgb(86,174,0);color:#fff;font-weight:bold;margin:0 10px;}
+.tb2{background:rgb(145,220,71);margin:0 3px;}
+.tb3{background:url(../../../../css/img/tb3.png) center center no-repeat;margin:0 3px;display:inline-block; vertical-align:top;width:12px;height:14px;}
+.hot{color:red;font-weight:bold;}
+.tb4{background:#FFE6E6;}
+.tkbox{width:80px;border:#000 solid 1px;border-width:0 0 1px 0;text-align:center;display:inline-block;}
+
+.jplayer{width:0px;height:0px;overflow:hidden;font-size:0;line-height:0;position:absolute;left:-1000px;top:0;}
+.jpy1{display:inline-block; background:url(../../../../css/img/jpy1.png) 0 -3px no-repeat;width:22px;height:22px;cursor:pointer; vertical-align:middle;margin:0 3px; position:relative;zoom:1;}
+.jpy1_1{background-position:0 -41px;}
+.jpy1_2{background-position:0 -81px;}
+.jpy2,.jpy3{margin:20px auto;}
+.tit1 .jpy2,.tit1 .jpy3{margin-left:0;}
+.jpyfn{position:absolute;top:0;left:30px;}
+
+.jpy2{background:url(../../../../css/img/bfq2.jpg)  no-repeat;width:424px;height:64px}
+.jpy3{background:url(../../../../css/img/sp.jpg)  no-repeat;width:642px;height:425px}
+.tip{ width:98%; padding-left:2%; height:28px; line-height:28px; background:#f1faee; color:#339944;}
+.tip span{ margin-right:18px;}
+.del_sub_help{background:url(images/del.png)  no-repeat;width:16px;height:16px;position:absolute;margin-top:5px; cursor: pointer;}
+.sub_help{margin-left:18px;border: rgb(145,220,71) solid 1px;}

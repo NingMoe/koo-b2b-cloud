@@ -1,0 +1,1 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %><c:choose><c:when test="${choiceQuestionDto.questionDto.responseType==1}">子</c:when><c:otherwise>试</c:otherwise></c:choose>

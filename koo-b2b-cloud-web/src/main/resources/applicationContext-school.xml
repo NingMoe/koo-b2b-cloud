@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.0.xsd"
+       default-autowire="byName" default-lazy-init="false">
+    <!-- 定时任务
+    <task:annotation-driven/>
+    <dubbo:reference id="taskService" interface="com.koolearn.cloud.task.service.TaskService"/>
+    -->
+    <!-- 学校端首页   -->
+    <dubbo:reference id="homePageService" interface="com.koolearn.cloud.school.homePage.HomePageService"/>
+    <!--学校端班级-->
+    <dubbo:reference id="schoolCommonService" interface="com.koolearn.cloud.school.common.SchoolCommonService"/>
+    <dubbo:reference id="classesManageService" interface="com.koolearn.cloud.school.schooclasses.ClassesManageService"/>
+    <!--学校端教师-->
+    <dubbo:reference id="teacherManageService" interface="com.koolearn.cloud.school.teacher.TeacherManageService"/>
+    <!--学校端学生-->
+    <dubbo:reference id="schoolStudentManageService" interface="com.koolearn.cloud.school.student.SchoolStudentManageService"/>
+    <!--学校端管理用户统计查询权限-->
+    <dubbo:reference id="authoritySchoolService" interface="com.koolearn.cloud.school.authorityschool.AuthoritySchoolService"/>
+    <!-- 学校信息维护管理服务-->
+    <dubbo:reference id="schoolManageService" interface="com.koolearn.cloud.school.schoolmanage.SchoolManageService"/>
+
+</beans>

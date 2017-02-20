@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:koo="http://www.koolearn.com/schema/test/koo" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.koolearn.com/schema/test/koo
+        http://www.koolearn.com/schema/test/koo.xsd"
+	default-autowire="byName" default-lazy-init="false">
+    <!--考试系统题库Hessian同步接口-->
+    <bean id="questionSyncServiceClient" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="http://${exam.host}/remoteQuestionSync/questionSyncRemoting">
+        </property>
+        <property name="readTimeout"><value>1000000</value></property>
+        <property name="serviceInterface"><value>com.koolearn.exam.syncQuestion.service.QuestionSyncService</value></property>
+    </bean>
+    <dubbo:registry  id="exam" protocol="zookeeper" default="false"/>
+    <dubbo:reference id="paperInterface" timeout="6000" registry="exam" interface="com.koolearn.exam.paperInterface.IPaperInterface" check="false"/>
+<!-- 考试题库Dao、service、Impl、builder start-->
+    <!-- 对应包com.koolearn.cloud.exam.examcore.question -->
+    <bean id="questionDaoBuilder" class="com.koolearn.cloud.exam.examcore.question.dao.builder.QuestionDaoBuilder"/>
+    <koo:dao id="questionDao" interface="com.koolearn.cloud.exam.examcore.question.dao.QuestionDao"/>
+    <bean id="choiceAnswerDaoBuilder" class="com.koolearn.cloud.exam.examcore.question.dao.builder.ChoiceAnswerDaoBuilder"/>
+    <koo:dao id="choiceAnswerDao" interface="com.koolearn.cloud.exam.examcore.question.dao.ChoiceAnswerDao"/>
+    <bean id="questionAttachDaoBuilder" class="com.koolearn.cloud.exam.examcore.question.dao.builder.QuestionAttachDaoBuilder"/>
+    <koo:dao id="questionAttachDao" interface="com.koolearn.cloud.exam.examcore.question.dao.QuestionAttachDao"/>
+    <koo:dao id="choiceQuestionDao" interface="com.koolearn.cloud.exam.examcore.question.dao.ChoiceQuestionDao"/>
+    <koo:dao id="complexQuestionDao" interface="com.koolearn.cloud.exam.examcore.question.dao.ComplexQuestionDao"/>
+    <koo:dao id="correctionQuestionDao" interface="com.koolearn.cloud.exam.examcore.question.dao.CorrectionQuestionDao"/>
+    <bean id="fillblankAnswerDAOBuilder" class="com.koolearn.cloud.exam.examcore.question.dao.builder.FillblankAnswerDAOBuilder" />
+    <koo:dao id="fillblankAnswerDAO" interface="com.koolearn.cloud.exam.examcore.question.dao.FillblankAnswerDAO" />
+    <koo:dao id="essayQuestionDAO" interface="com.koolearn.cloud.exam.examcore.question.dao.EssayQuestionDAO" />
+    <koo:dao id="spokenQuestionDao" interface="com.koolearn.cloud.exam.examcore.question.dao.SpokenQuestionDao" />
+    <koo:dao id="shortQuestionDao" interface="com.koolearn.cloud.exam.examcore.question.dao.ShortQuestionDao" />
+    <koo:dao id="tagObjectDao" interface="com.koolearn.cloud.exam.examcore.question.dao.TagObjectDao" />
+    <koo:dao id="matrixQuestionDao" interface="com.koolearn.cloud.exam.examcore.question.dao.MatrixQuestionDao" />
+    <koo:dao id="whriteQuestionDao" interface="com.koolearn.cloud.exam.examcore.question.dao.WhriteQuestionDao" />
+
+    <bean id="questionService" class="com.koolearn.cloud.exam.examcore.question.service.impl.QuestionServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.QuestionService" protocol="dubbo" ref="questionService" />
+    <bean id="choiceQuestionService" class="com.koolearn.cloud.exam.examcore.question.service.impl.ChoiceQuestionServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.ChoiceQuestionService" protocol="dubbo" ref="choiceQuestionService" />
+    <bean id="complexQuestionService" class="com.koolearn.cloud.exam.examcore.question.service.impl.ComplexQuestionServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.ComplexQuestionService" protocol="dubbo" ref="complexQuestionService" />
+    <bean id="correctionQuestionService" class="com.koolearn.cloud.exam.examcore.question.service.impl.CorrectionQuestionServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.CorrectionQuestionService" protocol="dubbo" ref="correctionQuestionService" />
+    <bean id="essayQuestionService" class="com.koolearn.cloud.exam.examcore.question.service.impl.EssayQuestionServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.EssayQuestionService" protocol="dubbo" ref="essayQuestionService" />
+    <bean id="questionBaseService" class="com.koolearn.cloud.exam.examcore.question.service.impl.QuestionBaseServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.QuestionBaseService" protocol="dubbo" ref="questionBaseService" />
+    <bean id="readQuestionService" class="com.koolearn.cloud.exam.examcore.question.service.impl.ReadQuestionServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.ReadQuestionService" protocol="dubbo" ref="readQuestionService" />
+    <bean id="shortQuestionService" class="com.koolearn.cloud.exam.examcore.question.service.impl.ShortQuestionServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.ShortQuestionService" protocol="dubbo" ref="shortQuestionService" />
+    <bean id="spokenQuestionService" class="com.koolearn.cloud.exam.examcore.question.service.impl.SpokenQuestionServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.SpokenQuestionService" protocol="dubbo" ref="spokenQuestionService" />
+    <bean id="tagObjectService" class="com.koolearn.cloud.exam.examcore.question.service.impl.TagObjectServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.TagObjectService" protocol="dubbo" ref="tagObjectService" />
+    <bean id="matrixQuestionService" class="com.koolearn.cloud.exam.examcore.question.service.impl.MatrixQuestionServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.MatrixQuestionService" protocol="dubbo" ref="matrixQuestionService" />
+    <bean id="whriteQuestionService" class="com.koolearn.cloud.exam.examcore.question.service.impl.WhriteQuestionServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.WhriteQuestionService" protocol="dubbo" ref="whriteQuestionService" />
+
+    <koo:dao id="questiontypeDao" interface="com.koolearn.cloud.exam.examcore.question.dao.QuestiontypeDao" />
+    <bean id="questiontypeService" class="com.koolearn.cloud.exam.examcore.question.service.impl.QuestiontypeServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.QuestiontypeService" protocol="dubbo" ref="questiontypeService" />
+
+    <bean id="questionConvertService"
+          class="com.koolearn.cloud.exam.examcore.question.service.impl.QuestionConvertServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.question.service.QuestionConvertService"
+                   protocol="dubbo" ref="questionConvertService" />
+
+    <!-- 考试题库内部服务 end-->
+<!-- 考试试卷、考试结果   start-->
+    <!--对应包：com.koolearn.cloud.exam.examcore.exam -->
+    <!--对应包：com.koolearn.cloud.exam.examcore.paper -->
+    <koo:dao id="examResultDetailDao" interface="com.koolearn.cloud.exam.examcore.exam.dao.ExamResultDetailDao" />
+    <koo:dao id="examResultDao" interface="com.koolearn.cloud.exam.examcore.exam.dao.ExamResultDao" />
+    <koo:dao id="resultStructureDao" interface="com.koolearn.cloud.exam.examcore.exam.dao.ExamResultStructureDao"/><!-- 杜鸿麟 -->
+    <koo:dao id="examResultExtDao" interface="com.koolearn.cloud.exam.examcore.exam.dao.ExamResultExtDao"/><!-- 杜鸿麟 -->
+    <bean id="examResultService" class="com.koolearn.cloud.exam.examcore.exam.service.impl.ExamResultServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.exam.service.ExamResultService" protocol="dubbo" ref="examResultService"/>
+    <koo:dao id="examResultSearchDao" interface="com.koolearn.cloud.exam.examcore.exam.dao.ExamResultSearchDao" />
+    <bean id="examResultSearchDaoBuilder" class="com.koolearn.cloud.exam.examcore.exam.dao.builder.ExamResultSearchDaoBuilder"/>
+
+    <bean id="testPaperDaoBuilder" class="com.koolearn.cloud.exam.examcore.paper.dao.builder.TestPaperDaoBuilder"/>
+    <koo:dao id="testPaperDao" interface="com.koolearn.cloud.exam.examcore.paper.dao.TestPaperDao" />
+    <koo:dao id="paperDetailDao" interface="com.koolearn.cloud.exam.examcore.paper.dao.PaperDetailDao" />
+    <koo:dao id="paperSubScoreDao" interface="com.koolearn.cloud.exam.examcore.paper.dao.PaperSubScoreDao" />
+    <koo:dao id="testPaperStructureDao" interface="com.koolearn.cloud.exam.examcore.paper.dao.TestPaperStructureDao" />
+    <!--  -->
+    <bean id="testPaperService" class="com.koolearn.cloud.exam.examcore.paper.service.impl.TestPaperServiceImpl"/>
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.paper.service.TestPaperService" protocol="dubbo" ref="testPaperService" />
+
+    <bean id="testPaperStructureService" class="com.koolearn.cloud.exam.examcore.paper.service.impl.TestPaperStructureServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.exam.examcore.paper.service.TestPaperStructureService" protocol="dubbo" ref="testPaperStructureService"/>
+<!-- 考试试卷、考试结果   end-->
+
+	<!-- exam考试题目bean   begin
+        <koo:dao id="tagObjectDao" interface="com.koolearn.cloud.exam.question.dao.TagObjectDao" />
+		<koo:dao id="questionDao" interface="com.koolearn.cloud.exam.question.dao.QuestionDao" />
+		<bean id="questionDaoBuilder" class="com.koolearn.cloud.exam.question.dao.builder.QuestionDaoBuilder"/>
+		<koo:dao id="shortQuestionDao" interface="com.koolearn.cloud.exam.question.dao.ShortQuestionDao" />
+		<koo:dao id="whriteQuestionDao" interface="com.koolearn.cloud.exam.question.dao.WhriteQuestionDao" />
+		<koo:dao id="essayQuestionDAO" interface="com.koolearn.cloud.exam.question.dao.EssayQuestionDAO" />
+		<koo:dao id="fillblankAnswerDAO" interface="com.koolearn.cloud.exam.question.dao.FillblankAnswerDAO" />
+		<koo:dao id="correctionQuestionDao" interface="com.koolearn.cloud.exam.question.dao.CorrectionQuestionDao" />
+		<koo:dao id="complexQuestionDao" interface="com.koolearn.cloud.exam.question.dao.ComplexQuestionDao" />
+		<koo:dao id="choiceQuestionDao" interface="com.koolearn.cloud.exam.question.dao.ChoiceQuestionDao" />
+		<koo:dao id="choiceAnswerDao" interface="com.koolearn.cloud.exam.question.dao.ChoiceAnswerDao" />
+		<koo:dao id="questionSyncErrorDao" interface="com.koolearn.cloud.exam.question.dao.QuestionSyncErrorDao" />
+		<koo:dao id="attachDao" interface="com.koolearn.cloud.exam.question.dao.QuestionAttachDao" />
+
+		<dubbo:service interface="com.koolearn.cloud.exam.question.service.ChoiceQuestionService" 
+			protocol="dubbo" ref="choiceQuestionService"/>
+		<bean id="choiceQuestionService" class="com.koolearn.cloud.exam.question.service.impl.ChoiceQuestionServiceImpl">
+		</bean>
+		<dubbo:service interface="com.koolearn.cloud.exam.question.service.QuestionService" 
+			protocol="dubbo" ref="questionService"/>
+		<bean id="questionService" class="com.koolearn.cloud.exam.question.service.impl.QuestionServiceImpl">
+		</bean>
+		
+		<dubbo:service interface="com.koolearn.cloud.exam.question.service.ReadQuestionService" 
+			protocol="dubbo" ref="readQuestionService"/>
+		<bean id="readQuestionService" class="com.koolearn.cloud.exam.question.service.impl.ReadQuestionServiceImpl">
+			<property name="complexQuestionDao" ref="complexQuestionDao"></property>
+			<property name="questionService" ref="questionService"></property>
+			<property name="choiceQuestionService" ref="choiceQuestionService"></property>
+			<property name="essayQuestionService" ref="essayQuestionService"></property>
+			<property name="judgeService" ref="judgeService"></property>
+			<property name="shortQuestionService" ref="shortQuestionService"></property>
+			<property name="whriteQuestionService" ref="whriteQuestionService"></property>
+		</bean>
+		
+		<dubbo:service interface="com.koolearn.cloud.exam.question.service.JudgeService" 
+			protocol="dubbo" ref="judgeService"/>
+		<bean id="judgeService" class="com.koolearn.cloud.exam.question.service.impl.JudgeServiceImpl">
+			<property name="questionDao" ref="questionDao"></property> 
+			<property name="choiceQuestionDao" ref="choiceQuestionDao"></property>
+			<property name="choiceAnswerDao" ref="choiceAnswerDao"></property>
+			<property name="questionService" ref="questionService"></property>
+		</bean>
+		
+		<dubbo:service interface="com.koolearn.cloud.exam.question.service.ShortQuestionService" 
+			protocol="dubbo" ref="shortQuestionService"/>
+		<bean id="shortQuestionService" class="com.koolearn.cloud.exam.question.service.impl.ShortQuestionServiceImpl">
+			<property name="questionDao" ref="questionDao"></property> 
+			<property name="shortQuestionDao" ref="shortQuestionDao"></property>
+		</bean>
+		
+		<dubbo:service interface="com.koolearn.cloud.exam.question.service.EssayQuestionService" 
+			protocol="dubbo" ref="essayQuestionService"/>
+		<bean id="essayQuestionService" class="com.koolearn.cloud.exam.question.service.impl.EssayQuestionServiceImpl">
+			<property name="questionDao" ref="questionDao"></property> 
+			<property name="essayQuestionDAO" ref="essayQuestionDAO"></property>
+			<property name="fillblankAnswerDAO" ref="fillblankAnswerDAO"></property>
+			<property name="questionService" ref="questionService"></property>
+		</bean>
+		
+		<dubbo:service interface="com.koolearn.cloud.exam.question.service.WhriteQuestionService" 
+			protocol="dubbo" ref="whriteQuestionService"/>
+		<bean id="whriteQuestionService" class="com.koolearn.cloud.exam.question.service.impl.WhriteQuestionServiceImpl">
+			<property name="questionDao" ref="questionDao"></property> 
+			<property name="whriteQuestionDao" ref="whriteQuestionDao"></property>
+		</bean>
+		<dubbo:service interface="com.koolearn.cloud.exam.question.service.CorrectionQuestionService" 
+			protocol="dubbo" ref="correctionQuestionService"/>
+		<bean id="correctionQuestionService" class="com.koolearn.cloud.exam.question.service.impl.CorrectionQuestionServiceImpl">
+		</bean>
+		<bean id="questionRepository" class="com.koolearn.cloud.exam.question.repository.QuestionRepository" >
+		</bean>
+		<bean id="questionAttachRepository" class="com.koolearn.cloud.exam.question.repository.QuestionAttachRepository" >
+		</bean>
+		<bean id="choiceQuestionRepository" class="com.koolearn.cloud.exam.question.repository.ChoiceQuestionRepository" >
+		</bean>
+		<bean id="choiceAnswerRepository" class="com.koolearn.cloud.exam.question.repository.ChoiceAnswerRepository" >
+		</bean>
+		<bean id="complexQuestionRepository" class="com.koolearn.cloud.exam.question.repository.ComplexQuestionRepository"  scope="singleton">
+		</bean>
+		<bean id="essayQuestionRepository" class="com.koolearn.cloud.exam.question.repository.EssayQuestionRepository"  scope="singleton">
+		</bean>
+		<bean id="fillblankAnswerRepository" class="com.koolearn.cloud.exam.question.repository.FillblankAnswerRepository"  scope="singleton">
+		</bean>
+		<bean id="correctionQuestionRepository" class="com.koolearn.cloud.exam.question.repository.CorrectionQuestionRepository" >
+		</bean>
+		<bean id="repositoryManager" class="com.koolearn.cloud.exam.question.repository.RepositoryManager"></bean>
+	--><!-- exam end -->
+
+	<!-- 考试相关 begin -->
+	<bean id="examService" class="com.koolearn.cloud.task.service.impl.ExamServiceImpl"/>
+	<dubbo:service interface="com.koolearn.cloud.task.service.ExamService" ref="examService" protocol="dubbo"/>
+	<koo:dao id="examDao" interface="com.koolearn.cloud.task.dao.ExamDao"/>
+	<bean id="examDaoBuilder" class="com.koolearn.cloud.task.dao.builder.ExamDaoBuilder"/>
+	
+	<!-- 考试相关 end -->
+</beans>

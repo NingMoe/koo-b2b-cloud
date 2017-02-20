@@ -1,0 +1,70 @@
+<div id='toolbar1' class='flexpaper_toolbar flexpaper_toolbarstd flexpaper_top fc'>
+    
+    <a class="pdfbtn1 zoombtn1 fl" href="javascript:;" target="_self" onclick="pcsetZoom(1)"><span class="msgalt" style="width:34px;">放大</span></a>
+    <a class="pdfbtn1 zoombtn2 fl" href="javascript:;" target="_self" onclick="pcsetZoom(-1)"><span class="msgalt" style="width:34px;">缩小</span></a>
+    <div class="line1 fl"></div>
+    <input type='hidden' class='flexpaper_tbtextinput flexpaper_txtZoomFactor' />
+    
+    <a class="pdfbtn1 pagebtnx pagebtn1 fl" href="javascript:;" target="_self" onclick='$FlexPaper("documentViewer").switchMode("Portrait");pageNum(800);' style="background-position: -84px 0;"><span class="msgalt" style="width:68px;">单页阅读</span></a>
+    <a class="pdfbtn1 pagebtnx pagebtn2 fl" href="javascript:;" target="_self" onclick='$FlexPaper("documentViewer").switchMode("TwoPage");pageNum(800);'  ><span class="msgalt" style="width:68px;">双页阅读</span></a>
+    <a class="pdfbtn1 pagebtnx pagebtn3 fl" href="javascript:;" target="_self" onclick='$FlexPaper("documentViewer").switchMode("Tile");pageNum(800);'  ><span class="msgalt" style="width:68px;">多页阅读</span></a>
+    <div class="line1 fl"></div>
+    <!-- 
+    <a class="pdfbtn1 txtbtnx txtbtn1 fl" href="javascript:;" target="_self" onclick="$FlexPaper('documentViewer').setCurrentCursor('TextSelectorCursor')">
+        <span class="msgalt" style="width:68px;">选中模式</span></a>
+    <a class="pdfbtn1 txtbtnx txtbtn2 fl" href="javascript:;" target="_self" onclick="$FlexPaper('documentViewer').setCurrentCursor('ArrowCursor')" style="display:none;">
+       <span class="msgalt" style="width:68px;">选中模式</span></a>
+ -->
+  	<a class="pdfarrow pdfarrowl mt12 fl" href="javascript:;" target="_self" onclick='$FlexPaper("documentViewer").prevPage();pageNum(500);'></a>
+    <input class="w32 colgreen tac mt10 flexpaper_txtPageNumber fl" id="pcPageNumber" name="" type="text" value="1">
+    <strong class='pagenum mt10 flexpaper_lblTotalPages flexpaper_tblabel fl'> / </strong>
+    <a class="pdfarrow pdfarrowr mt12 fl" href="javascript:;" target="_self" onclick='$FlexPaper("documentViewer").nextPage();pageNum(500);'></a>
+    
+    <a class="pdfbtn1 screenbtn1 fr" href="javascript:;" target="_self"><span class="msgalt" style="width:34px;left:-28px;">全屏</span></a>
+    <div class="line1 fr"></div>
+    <a class="mt10 searchbtn1 fr" href="javascript:;" target="_self" onclick='$FlexPaper("documentViewer").searchText($(".pc_txtSearch").val());'></a>
+    <input class="mt10 pc_txtSearch w125 colgray ipt1 fr" name="" type="text" placeholder="输入搜索词">
+   
+</div>
+<script language="javascript">
+		
+		//放大缩小功能
+		function pcsetZoom(num){
+			num=parseInt(num);
+			var xnum=parseFloat($(".flexpaper_txtZoomFactor").val())/100+0.1*num;
+			$FlexPaper("documentViewer").Zoom(xnum)
+		}
+		function pageNum(num){
+			setTimeout(function(){
+				$("#PageNumberx").val($FlexPaper("documentViewer").getCurrPage());
+				$(".subnum").html($FlexPaper("documentViewer").getCurrPage());
+			},num);
+		}
+		$(function(){
+			
+			$(".pagebtnx").click(function(){
+				$(".pagebtnx").attr("style","");
+				var bgps=$(this).css("background-position").replace(/38px$/i, "0");
+				$(this).css("background-position",bgps);
+			});
+			$(".txtbtnx").click(function(){
+				$(this).hide().siblings(".txtbtnx").show();
+			});
+			$(".pdfbtn1").hover(function(){
+				$(".msgalt",this).css("display","inline-block");
+			},function(){
+				$(".msgalt",this).css("display","none");
+			})
+			
+			
+			/*$(document).keypress(function(e){
+				var code = e.keyCode ? e.keyCode : e.which;
+				if(code == 27 || code == 96){
+					fullScreenbx();
+				};
+			});*/
+			
+			// adjust IE 7 and below for textbox input size
+			
+		})
+</script>

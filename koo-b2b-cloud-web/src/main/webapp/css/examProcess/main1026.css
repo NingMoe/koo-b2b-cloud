@@ -1,0 +1,32 @@
+.sec{margin-bottom:5px;}
+.radio_tab{margin-bottom:10px;}
+.dx{float:left;margin:8px 0px 0px 10px;}
+.dx_table{width:100%;cellpadding:0px; border:#b1b1b1 solid 1px; border-right:none; border-top:none;}
+.dx_table td{ height:28px; line-height:28px; text-align:center; border:#b1b1b1 solid 1px; border-left:none; border-bottom:none;}
+.dx_td0{background:#b9eaf5;width:93px;}
+.dx_td1{background:#b9eaf5;width:128px;}
+.prob_t{height:32px;line-height:32px;border-bottom:#cecece solid 1px;}
+.prob_t span{float:left;font-weight:bold;}
+.prob_t a{float:right;display:block;height:32px;width:70px;text-decoration:underline;padding-right:5px;background:url(http://images.koolearn.com/www/subject/kaoshi/u48_normal.png) right center no-repeat;}
+.xz select{width:104px;height:23px; margin-right:41px; margin-bottom:10px;}
+.date_l{float:left;width:300px; height:50px;}
+.date_r{ float:right; width:300px; height:50px;}
+.create{float:left;width:315px;height:50px;}
+.date_r a{ text-decoration:underline;margin-left:20px;}
+.xz_link{ text-decoration:underline;}
+.jlu{ border-top:#cecece solid 2px;}
+.sh_title{height:40px;}
+.sh_list{float:left;width:220px;height:40px;text-align:left;}
+.sh_list li{float:left;width:100px;height:40px;}
+.sh_list li label{ width:100px;}
+.sh_lr{float:right;width:200px;height:40px;}
+.sh_lr li{float:left;}
+.sh_lr .actsure{width:50px;height:25px; float:right; padding-top:3px;}
+.actsure a{color:#FFFFFF;background:#48A4E8; display:block; width:50px; height:25px;line-height:25px;text-align:center; cursor:pointer;}
+tab4 .td50{width:460px;}
+.ks_dt p{width:100%;text-align:left;height:auto;}
+.ks_dt p span{color:#999999;}
+.ipt5{height:26px;line-height:26px;width:52px;padding:0 5px;border:#999 solid 1px;color:#999;vertical-align: middle; margin-left:5px;}
+
+
+

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://springframework.org/schma/util" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.2.xsd
+            http://www.springframework.org/schema/mvc
+            http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+            http://www.springframework.org/schema/util 
+            http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+			<mvc:interceptors>
+
+                    <mvc:interceptor>
+                        <mvc:mapping path="/school/**" />
+                        <mvc:exclude-mapping path="/schoolLogin"/>
+                        <mvc:exclude-mapping path="/schoollorLogin"/>
+                        <bean class="com.koolearn.cloud.login.interceptor.SchoolInterceptor"/>
+                    </mvc:interceptor>
+
+					<mvc:interceptor>
+						<mvc:mapping path="/teacher/**" />
+                        <mvc:mapping path="/composition/** "/>
+						<mvc:exclude-mapping path="/random"/>
+						<mvc:exclude-mapping path="/sendRegisterCode"/>
+						<mvc:exclude-mapping path="/loginPage"/>
+						<mvc:exclude-mapping path="/login"/>
+						<mvc:exclude-mapping path="/registPage"/>
+						<mvc:exclude-mapping path="/regist"/>
+                        <mvc:exclude-mapping path="/teacher/resource/converCallBack"/>
+                        <mvc:exclude-mapping path="/composition/payCenter/notify"/>
+						<bean class="com.koolearn.cloud.login.interceptor.TeacherInterceptor"/>
+					</mvc:interceptor>
+                    <mvc:interceptor>
+                        <mvc:mapping path="/teacher/** "/>
+                        <mvc:mapping path="/composition/** "/>
+                        <mvc:exclude-mapping path="/random"/>
+                        <mvc:exclude-mapping path="/sendRegisterCode"/>
+                        <mvc:exclude-mapping path="/loginPage"/>
+                        <mvc:exclude-mapping path="/login"/>
+                        <mvc:exclude-mapping path="/registPage"/>
+                        <mvc:exclude-mapping path="/regist"/>
+                        <mvc:exclude-mapping path="/teacher/resource/converCallBack"/>
+                        <mvc:exclude-mapping path="/composition/payCenter/notify"/>
+                        <bean class="com.koolearn.cloud.login.interceptor.PermissionInterceptor"/>
+                    </mvc:interceptor>
+					<mvc:interceptor>
+						<mvc:mapping path="/student/**" />
+                        <mvc:exclude-mapping path="/student/classRoom/findLearning" />
+                        <mvc:exclude-mapping path="/composition/payCenter/notify"/>
+						<bean class="com.koolearn.cloud.login.interceptor.StudentInterceptor"/>
+					</mvc:interceptor>
+                <mvc:interceptor>
+                    <mvc:mapping path="/operation/**" />
+                    <bean class="com.koolearn.cloud.login.interceptor.OperationInterceptor"/>
+                </mvc:interceptor>
+
+			</mvc:interceptors>
+</beans>

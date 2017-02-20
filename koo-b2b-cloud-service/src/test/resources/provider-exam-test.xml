@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:koo="http://www.koolearn.com/schema/test/koo" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.koolearn.com/schema/test/koo
+        http://www.koolearn.com/schema/test/koo.xsd"
+	default-autowire="byName" default-lazy-init="false">
+
+    <bean id="commonHessianService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="http://cloud.trunk.koolearn.com/commonService">
+        </property>
+        <property name="readTimeout"><value>1000000</value></property>
+        <property name="serviceInterface"><value>com.koolearn.cloud.mobi.service.CommonHessianService</value></property>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+
+    <bean id="studentCompositionService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+        <property name="serviceUrl" value="http://cloud.trunk.koolearn.com/studentCompositionService">
+        </property>
+        <property name="readTimeout"><value>1000000</value></property>
+        <property name="serviceInterface"><value>com.koolearn.cloud.mobi.service.StudentCompositionHessianService</value></property>
+        <property name="overloadEnabled" value="true"/>
+    </bean>
+
+</beans>

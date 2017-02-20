@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:koo="http://www.koolearn.com/schema/test/koo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.koolearn.com/schema/test/koo
+        http://www.koolearn.com/schema/test/koo.xsd ">
+    <!--考试系统题库Hessian同步接口-->
+	<bean id="questionSyncServiceClient" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="http://${exam.host}/remoteQuestionSync/questionSyncRemoting">
+		</property>
+		<property name="readTimeout"><value>1000000</value></property>
+		<property name="serviceInterface"><value>com.koolearn.exam.syncQuestion.service.QuestionSyncService</value></property>
+	</bean>
+    <dubbo:reference id="testPaperStructureService" interface="com.koolearn.cloud.exam.examcore.paper.service.TestPaperStructureService"/>
+    <dubbo:reference id="testPaperService" interface="com.koolearn.cloud.exam.examcore.paper.service.TestPaperService" timeout="200000" />
+    <!-- 题库服务start -->
+    <dubbo:reference id="readQuestionService" interface="com.koolearn.cloud.exam.examcore.question.service.ReadQuestionService"/>
+    <dubbo:reference id="questionService" interface="com.koolearn.cloud.exam.examcore.question.service.QuestionService"/>
+    <dubbo:reference id="questionBaseService" interface="com.koolearn.cloud.exam.examcore.question.service.QuestionBaseService"/>
+    <dubbo:reference id="choiceQuestionService" interface="com.koolearn.cloud.exam.examcore.question.service.ChoiceQuestionService"/>
+    <dubbo:reference id="matrixQuestionService" interface="com.koolearn.cloud.exam.examcore.question.service.MatrixQuestionService"/>
+    <dubbo:reference id="whriteQuestionService" interface="com.koolearn.cloud.exam.examcore.question.service.WhriteQuestionService"/>
+    <dubbo:reference id="essayQuestionService" interface="com.koolearn.cloud.exam.examcore.question.service.EssayQuestionService"/>
+    <dubbo:reference id="shortQuestionService" interface="com.koolearn.cloud.exam.examcore.question.service.ShortQuestionService"/>
+    <dubbo:reference id="spokenQuestionService" interface="com.koolearn.cloud.exam.examcore.question.service.SpokenQuestionService"/>
+    <dubbo:reference id="correctionQuestionService" interface="com.koolearn.cloud.exam.examcore.question.service.CorrectionQuestionService"/>
+    <dubbo:reference id="complexQuestionService" interface="com.koolearn.cloud.exam.examcore.question.service.ComplexQuestionService"/>
+    <!-- 题库服务end -->
+    <dubbo:reference id="tagObjectService" interface="com.koolearn.cloud.exam.examcore.question.service.TagObjectService"></dubbo:reference>
+    <dubbo:reference id="questiontypeService" interface="com.koolearn.cloud.exam.examcore.question.service.QuestiontypeService"/>
+    <!-- 题库服务接口start -->
+    <!--<dubbo:reference id="questionSearchService" interface="com.koolearn.cloud.exam.examcore.question.service.QuestionSearchService"/>-->
+    <dubbo:reference id="questionConvertService" interface="com.koolearn.cloud.exam.examcore.question.service.QuestionConvertService"/>
+    <!--<dubbo:reference id="questionTagService" interface="com.koolearn.cloud.exam.examspread.question.service.QuestionTagService"/>-->
+    <!--<dubbo:reference id="examStateService" interface="com.koolearn.cloud.exam.examspread.question.service.ExamStateService"/>-->
+    <!-- 题库服务接口end -->
+   
+    <!-- 本地考试exam begin
+    <dubbo:reference id="questionService" interface="com.koolearn.cloud.exam.question.service.QuestionService"/>
+    <dubbo:reference id="choiceQuestionService" interface="com.koolearn.cloud.exam.question.service.ChoiceQuestionService"/>
+    <dubbo:reference id="readQuestionService" interface="com.koolearn.cloud.exam.question.service.ReadQuestionService"/>
+    <dubbo:reference id="judgeService" interface="com.koolearn.cloud.exam.question.service.JudgeService"/>
+    <dubbo:reference id="shortQuestionService" interface="com.koolearn.cloud.exam.question.service.ShortQuestionService"/>
+    <dubbo:reference id="essayQuestionService" interface="com.koolearn.cloud.exam.question.service.EssayQuestionService"/>
+    <dubbo:reference id="whriteQuestionService" interface="com.koolearn.cloud.exam.question.service.WhriteQuestionService"/>
+    <dubbo:reference id="correctionQuestionService" interface="com.koolearn.cloud.exam.question.service.CorrectionQuestionService"/>
+    --> <!-- exam end -->
+
+    <!--引用dubbo远程服务 给暴露的hessian服务实现类调用 -->
+    <dubbo:reference id="dubboCompositionService" interface="com.koolearn.cloud.composition.service.CompositionService"></dubbo:reference>
+
+</beans>

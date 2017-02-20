@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:koo="http://www.koolearn.com/schema/test/koo" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.0.xsd
+        http://www.koolearn.com/schema/test/koo
+        http://www.koolearn.com/schema/test/koo.xsd"
+       default-autowire="byName"  default-lazy-init="false">
+    <context:component-scan base-package="com.koolearn.cloud.exam.examcore.question.*"/>
+    <task:annotation-driven/>
+    <bean  id="springContextUtils" class="com.koolearn.framework.common.utils.spring.SpringContextUtils" depends-on="redisClient"></bean>
+    <!--学科学段工具类-->
+    <bean id="dataSelectUtil" class="com.koolearn.cloud.util.DataSelectUtil" depends-on="springContextUtils" />
+    <!--数据字典工具类-->
+    <bean id="dataDictionaryUtil" class="com.koolearn.cloud.util.DataDictionaryUtil" depends-on="springContextUtils" />
+    <!--klb工具类-->
+    <bean id="klbTagsUtil" class="com.koolearn.cloud.util.KlbTagsUtil" depends-on="dataDictionaryUtil"/>
+    <!--klb 接口-->
+
+
+    <dubbo:registry  id="klb"  protocol="zookeeper" default="false"/>
+    <dubbo:reference id="tagsService" timeout="6000" registry="klb" interface="com.koolearn.klb.tags.service.TagsService" />
+    <dubbo:reference id="tagsDescService" timeout="6000" registry="klb"  interface="com.koolearn.klb.tags.service.TagsDescService" />
+    <!--数字图书馆接口-->
+    <dubbo:registry  id="libraryZookeeper"  protocol="zookeeper" default="false"/>
+    <dubbo:reference id="interfaceCloudService" timeout="6000" registry="libraryZookeeper"  interface="com.koolearn.library.maintain.remote.service.InterfaceCloudService" />
+    <!--数据字典接口-->
+    <bean id="dictionaryService" class="com.koolearn.cloud.dictionary.service.DictionaryServiceImpl"/>
+    <dubbo:service interface="com.koolearn.cloud.dictionary.service.DictionaryService" ref="dictionaryService" protocol="dubbo"/>
+    <koo:dao id="dictionaryDao" interface="com.koolearn.cloud.dictionary.dao.DictionaryDao"/>
+    <bean id="dictionaryDaoBuilder" class="com.koolearn.cloud.dictionary.dao.builder.DictionaryDaoBuilder"/>
+
+    <!--配置Redis缓存-->
+    <bean id="placeholderConfig" class="com.koolearn.cloud.SystemGlobalsPropertyPlaceholderConfigurer"/>
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxActive" value="500" />
+        <property name="maxIdle" value="500" />
+        <property name="maxWait" value="60000" />
+        <property name="testOnBorrow" value="false" />
+    </bean>
+    <bean id="serializer" class="com.koolearn.framework.redis.client.HessianRedisSerializer" />
+    <bean id="redisClient" class="com.koolearn.framework.redis.client.KooJedisClient"
+          init-method="init" destroy-method="destroy">
+        <property name="prefix" value="${redisKey}"></property>
+        <property name="config" ref="jedisPoolConfig"></property>
+        <property name="serializer" ref="serializer"></property>
+        <property name="address" value="${redisAddress}"></property>
+        <property name="timeOut" value="1000000"></property>
+    </bean>
+</beans>

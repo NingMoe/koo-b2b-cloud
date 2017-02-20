@@ -1,0 +1,458 @@
+#number_of_replicas 副本数0 shards 1，生产环境调整成真正的副本数和shards数目。
+number_of_replicas 副本数为0时适用单机 副本数为1时适用与2个节点的集群
+shards 分片、分区
+
+---创建题目索引
+
+curl -XDELETE  'http://elasticsearch.trunk.koolearn.com/cloud_question';
+curl -XPUT 'http://elasticsearch.trunk.koolearn.com/cloud_question/' -d '{
+    "settings" : {
+        "index" : {
+            "number_of_shards" : 1,
+            "number_of_replicas" : 0
+        }
+    }
+}';
+	 
+curl -XPUT 'http://elasticsearch.trunk.koolearn.com/cloud_question/cloud_question/_mapping' -d '
+{
+    "cloud_question": {
+        "properties": {
+            "id": {
+                "type": "integer",
+                "store": "yes"
+            },
+              "te_id": {
+                "type": "integer",
+                "store": "yes"
+            },
+            "name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "code": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "status": {
+                "type": "integer",
+                "store": "yes"
+            },
+             "new_version": {
+                "type": "integer",
+                "store": "yes"
+            },
+             "issubjectived": {
+                "type": "integer",
+                "store": "yes"
+            },
+             "input_type": {
+                "type": "integer",
+                "store": "yes"
+            },
+            "question_type_id": {
+                "type": "integer",
+                "store": "yes"
+            },
+            "create_date": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "last_update_date": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "last_update_by": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "use_times": {
+                "type": "integer",
+                "store": "no"
+            },
+            "user_use_id": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "user_collection_id": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "searchContent": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "tag_full_path": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "mmseg"
+            }
+        }
+    }
+}';
+
+curl -XDELETE  'http://elasticsearch.trunk.koolearn.com/cloud_paper';
+curl -XPUT 'http://elasticsearch.trunk.koolearn.com/cloud_paper/' -d '{
+      "settings" : {
+          "index" : {
+              "number_of_shards" : 1,
+              "number_of_replicas" : 0
+          }
+      }
+  }';
+
+curl -XPUT 'http://elasticsearch.trunk.koolearn.com/cloud_paper/cloud_paper/_mapping' -d '
+{
+    "cloud_paper": {
+        "properties": {
+            "id": {
+                "type": "integer",
+                "store": "yes"
+            },
+            "paper_name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "paper_code": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "points": {
+                "type": "float",
+                "store": "yes"
+            },
+             "browse_times": {
+                "type": "integer",
+                "store": "yes"
+            },
+             "teacher_id": {
+                "type": "integer",
+                "store": "yes"
+            },
+            "teacher_name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            } ,
+             "school_id": {
+                "type": "integer",
+                "store": "yes"
+            },
+            "create_date": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "update_time": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "joinself_user": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "fromwh": {
+                "type": "integer",
+                "store": "no"
+            },
+            "status": {
+                "type": "integer",
+                "store": "no"
+            },
+            "subject_id": {
+                "type": "integer",
+                "store": "no"
+            },
+            "range_id": {
+                "type": "integer",
+                "store": "no"
+            },
+            "subject": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "range": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "searchContent": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "tag_full_path": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "mmseg"
+            }
+        }
+    }
+}';
+
+curl -XDELETE  'http://elasticsearch.trunk.koolearn.com/cloud_resource';
+  curl -XPUT 'http://elasticsearch.trunk.koolearn.com/cloud_resource/' -d '{
+      "settings" : {
+          "index" : {
+              "number_of_shards" : 1,
+              "number_of_replicas" : 0
+          }
+      }
+  }';
+
+curl -XPUT 'http://elasticsearch.trunk.koolearn.com/cloud_resource/cloud_resource/_mapping' -d '
+{
+    "cloud_resource": {
+        "properties": {
+            "id": {
+                "type": "integer",
+                "store": "yes"
+            },
+            "name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "description": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "type": {
+                "type": "integer",
+                "store": "no"
+            },
+            "format": {
+                "type": "integer",
+                "store": "no"
+            },
+            "marrow": {
+                "type": "integer",
+                "store": "no"
+            },
+            "upload_time": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "upload_user_id": {
+                "type": "integer",
+                "store": "no"
+            },
+            "storage _size": {
+                "type": "integer",
+                "store": "no"
+            },
+            "page_size": {
+                "type": "integer",
+                "store": "no"
+            },
+            "time_length": {
+                "type": "integer",
+                "store": "no"
+            },
+            "source": {
+                "type": "integer",
+                "store": "no"
+            },
+            "status": {
+                "type": "integer",
+                "store": "no"
+            },
+            "clsss_video": {
+                "type": "integer",
+                "store": "no"
+            },
+            "subject_tag_id": {
+                "type" : "integer", 
+                "store" : "no"
+            } ,
+            "stage_tag_id" :  {
+                "type" : "integer", 
+                "store" : "no"
+            },
+            "teach_schedule_ids": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "knowledge_tags": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "file_old_name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "file_path": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "file_conver_path": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "frontcover_url": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "opt_time": {
+                "type": "string",
+                "store": "yes",
+                "index": "not_analyzed"
+            },
+            "opt_user_id": {
+                "type": "integer",
+                "store": "no"
+            },
+            "file_new_name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "subject_tag_name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "stage_tag_name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "extend_name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "content": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "tag_full_path": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "mmseg"
+            },
+            "knowledge_name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "book_version_name": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "use_times": {
+                "type": "integer",
+                "store": "no"
+            },
+            "user_use_id": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "user_collection_id": {
+                "type": "string",
+                "store": "no",
+                "index": "analyzed",
+                "analyzer": "ik_max_word"
+            },
+            "klb_type": {
+                "type": "integer",
+                "store": "no"
+            },
+             "document_content": {
+                 "type": "string",
+                 "store": "no",
+                 "index": "analyzed",
+                 "analyzer": "ik_max_word"
+             },
+             "type_name": {
+                  "type": "string",
+                  "store": "no",
+                  "index": "analyzed",
+                  "analyzer": "ik_max_word"
+              },
+              "school_id": {
+                   "type": "integer",
+                   "store": "no"
+                }
+        }
+    }
+}'
+
+
+
+curl -XDELETE  'http://elasticsearch.trunk.koolearn.com/cloud_resource/cloud_resource/Qw68SCodTiSRw8MpzlmGnQ'
+curl -XDELETE  'http://elasticsearch.trunk.koolearn.com/cloud_paper/cloud_paper/we6mI5HJSZ6bHs6APKWVGA'
+查询：
+_search
+{"query":{"match_all":{}}}
+
+curl -XPOST 'http://elasticsearch.trunk.koolearn.com/mooc_course/Ah-CswKEQFOtJAszwme89w/_update?pretty' -d '
+{
+	  "doc": { "logo": "/data/mooc/image/1413022766764.jpg" }
+}'
+
+
+
+
+
+
+
+
+
+

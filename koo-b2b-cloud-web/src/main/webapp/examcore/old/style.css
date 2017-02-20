@@ -1,0 +1,633 @@
+/*公共样式*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,select,p,blockquote,th,td{margin:0;padding:0;}
+em{font-style:normal}
+body{line-height:1;font:12px/20px '微软雅黑';background: #fff;}
+caption,th{text-align:left;}
+fieldset,img{border:0;}
+abbr,acronym{border:0;font-variant: normal;}
+:focus{outline:0;}
+address,button,caption,cite,code,dfn,em,input,optgroup,option,select,strong,textarea,th,var{font:inherit;}
+input,select,textarea{height:26px;}
+input{vertical-align:middle;border: 0;list-style: none;}
+del,ins{text-decoration:none;}
+ol,ul,dl{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+a{text-decoration:none;color:#666;}
+a:hover{text-decoration:none;}
+.fc:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.fc{display:inline-block;*zoom:1;}
+html .fc{*height:1%;}
+.fc{display: block;}
+:-ms-input-placeholder{color:#c8c8c8;}
+
+/*************************************公共样式*/
+/*header_one*/
+.header_one{width:100%;background:#1fad75;}
+.header_wrap{width:1200px;height: 74px;margin: 0 auto;}
+.header_wrap em,.header_wrap i{font-style: normal;}
+.logo,.logo_txt{display:inline;float:left;margin-top:20px;}
+.logo{width:88px;height:34px;overflow:hidden;}
+.logo_txt{height:36px;line-height:36px;margin-left:20px;padding-left:25px;border-left:1px solid #fff;font-size:22px;color:#fff;white-space:nowrap;}
+.logo_txt i{font-size:18px;margin:0px 5px;vertical-align:top;}
+.h_user{display:inline;float:right;line-height:22px;margin-top:30px;white-space:nowrap;color:#fff;font-size:14px;}
+/* nav */
+.nav{display:inline;float:left;height:74px;overflow:hidden;background:#199a67;margin-left:35px;}
+.nav li{display:inline;float:left;width:102px;height:74px;overflow:hidden;border-right:1px solid #1fad75;}
+.nav li a{display:block;width:100%;height:74px;text-align:center;font-size:16px;color:#fff;position:relative;}
+.nav li.cur a,.nav li a:hover{background:#fff;color:#1fad75;}
+.nav a .ico_nav{margin-top:12px;}
+.nav a .ico_nav1{margin-top:16px;}
+.nav a .ico_nav2{margin-top:11px;}
+.nav a .ico_nav3{margin-top:11px;}
+.nav a .ico_nav4{margin-top:13px;}
+.nav a .ico_nav5{margin-top:13px;}
+.nav a .ico_nav6{margin-top:11px;}
+.nav a .ico_nav7{margin-top:12px;}
+.nav a .ico_nav8{margin-top:13px;}
+.nav a .ico_nav9{margin-top:12px;}
+.nav a .ico_nav10{margin-top:9px;}
+.nav a em{position:absolute;width:100%;height:24px;line-height:24px;left:0px;bottom:5px;}
+/* ico_nav */
+.ico_nav{display:inline-block;width:20px;height:20px;overflow:hidden;text-align:left;text-indent:-999em;background:url(../../i/t/ico_nav.png) no-repeat;}
+.ico_nav1{width:32px;height:20px;background-position:0px 0px;}
+.cur .ico_nav1,a:hover .ico_nav1{background-position:0px -41px;}
+.ico_nav2{width:22px;height:29px;background-position:-42px 0px;}
+.cur .ico_nav2,a:hover .ico_nav2{background-position:-42px -41px;}
+.ico_nav3{width:22px;height:29px;background-position:-74px 0px;}
+.cur .ico_nav3,a:hover .ico_nav3{background-position:-74px -41px;}
+.ico_nav4{width:32px;height:26px;background-position:-106px 0px;}
+.cur .ico_nav4,a:hover .ico_nav4{background-position:-106px -41px;}
+.ico_nav5{width:30px;height:26px;background-position:-148px 0px;}
+.cur .ico_nav5,a:hover .ico_nav5{background-position:-148px -41px;}
+.ico_nav6{width:30px;height:30px;background-position:-188px 0px;}
+.cur .ico_nav6,a:hover .ico_nav6{background-position:-188px -41px;}
+.ico_nav7{width:28px;height:27px;background-position:-228px 0px;}
+.cur .ico_nav7,a:hover .ico_nav7{background-position:-228px -41px;}
+.ico_nav8{width:32px;height:27px;background-position:-266px 0px;}
+.cur .ico_nav8,a:hover .ico_nav8{background-position:-266px -41px;}
+.ico_nav9{width:30px;height:27px;background-position:-308px 0px;}
+.cur .ico_nav9,a:hover .ico_nav9{background-position:-308px -41px;}
+.ico_nav10{width:29px;height:31px;background-position:-348px 0px;}
+.cur .ico_nav10,a:hover .ico_nav10{background-position:-348px -41px;}
+/*header_two 学生首页登陆头部*/
+.header_two{width:100%;background:#1fad75;}
+.h_phone{display:inline;float:right;height:26px;line-height:26px;white-space:nowrap;font-size:24px;color:#fff;margin-top:25px;}
+.h_phone .ico_phone{width:26px;height:26px;background-position:0px -63px;margin-right:5px;display:inline;float:left;}
+.ico{display:inline-block;width:20px;height:20px;overflow:hidden;text-align:left;text-indent:-999em;background:url(../../i/t/ico.png) no-repeat;}
+/*页码*/
+.page{padding:25px 0px;font-size:0px;line-height:0px;text-align:center;}
+.page a,.page span,.page label,.page .inp_txt{display:inline-block;height:22px;line-height:22px;font-size:14px;color:#646464;margin:0px 2px;vertical-align:middle;}
+.page a{padding:0px 6px;}
+.page a.cur{background:#1fad75;color:#fff;}
+.page label{margin:0px 20px;}
+.page .inp_txt{width:42px;height:20px;border:1px solid #e6e6e6;text-align:center;margin:0px 5px;}
+/*footer*/
+.footer{height:178px;background:#e9e9e9;color:#555;font-family: '宋体';}
+.footer a{color:#555;}
+.footer a{display:inline-block;line-height:22px;}
+.footer a:hover{text-decoration:underline;}
+.footer strong{font-weight: bold;}
+.footer_content{text-align:center;width:1200px;margin:0 auto;position: relative;}
+.footer_as{padding-top:15px;}
+.f_logo{padding-top:10px;}
+.f_logo img{margin:0px 10px;}
+.footer p.current{position:relative;height: 66px;}
+.footer p.current .f_logo_zx{position: absolute;right:220px;bottom: 2px;}
+.footer_content .flo_as{width: 45px;position: absolute;bottom: 0;right: -26px;}
+.footer_content .flo_as a{width: 45px;height: 45px;margin-bottom: 10px;display: block;}
+
+/*----成绩查询（按学生查询）*/
+.stud_content{width: 1200px;margin: 0 auto;}
+.stud_content h2.h2_o{padding-top:19px;height: 68px;line-height: 68px;border-bottom: 1px solid #1fad75;font-size: 24px;color: #4b4b4b;font-weight: bold;}
+.stud_content h4.h4_o{padding-top:10px;height: 54px;line-height: 54px;font-size: 18px;color: #4b4b4b;font-weight: bold;}
+.stud_content h2.h2_nom{border-bottom: none;}
+table.tab_one,table.tab_two{width: 100%;font-size: 14px;font-family: "宋体";background: #e6e6e6;margin-bottom: 34px;}
+table.tab_one tr th,table.tab_one tr td{text-align: center;}
+table.tab_one tr th{color: #646464;height: 44px;background: #fafafa;}
+table.tab_one tr td{color: #4b4b4b;height: 36px;background: #fff;}
+table.tab_two tr .add_col{background: #fafafa;}
+table.tab_two tr th,table.tab_two tr td{text-align: center;height: 44px;background: #fff;}
+.stud_content h4.h4_o em{font-size: 12px;font-weight: normal;padding-left: 6px;}
+/*成绩查询依据及内容*/
+.refer_wrap{height: 41px;border-bottom: 1px solid #1fad75;}
+.refer_wrap .refer_menu{width:850px;float: left;}
+.refer_wrap .refer_menu a{width: 143px;height: 40px;line-height:40px;font-size:18px;color:#1fad75;text-align:center;border:1px solid #d6d6d6;border-bottom:none;margin-right:9px;float: left;}
+.refer_wrap .refer_menu a.current{background: #1fad75;color: #fff;border:1px solid #1fad75;}
+.refer_wrap .refer_case{width:342px;float:right;}
+.refer_wrap .refer_case input{width: 267px;height: 31px;line-height:31px;padding:0 5px;font-size:14px;border: 1px solid #dcdcdc;border-right: none;float: right;}
+.refer_wrap .refer_case a{width:62px;height: 33px;line-height:33px;font-size:14px;color:#fff;text-align:center;font-family:"宋体";background: #1fad75;float: right;}
+.refer_result{margin-bottom: 23px;border: 1px solid #e6e6e6;border-top:none;}
+.refer_result table{width:100%;background: #fafafa;}
+.refer_result table td{height: 44px;text-align:center;font-size:14px;font-family:"宋体";}
+.refer_result table td.download{padding-right: 25px;text-align: right;}
+.refer_result table td.download a{color: #1fad75;text-decoration: underline;}
+/*查询的各科*/
+p.comp_title{width:100%;height:41px;border-bottom: 1px solid #1fad75;margin-bottom: 24px;}
+p.comp_title span{width:99px;height: 40px;line-height:40px;font-size:14px;color:#1fad75;text-align:center;border-top:1px solid #d6d6d6;border-right:1px solid #d6d6d6;cursor:pointer;float: left;}
+p.comp_title span.span_cur{width:98px;_width:95px;border-left:1px solid #d6d6d6;}
+p.comp_title span.current{border-top:1px solid #1fad75;border-right:1px solid #1fad75;background: #1fad75;color: #fff;}
+.comp_tab .tab_one{margin-bottom: 20px;}
+.comp_tab .tab_one td{height:44px;}
+.comp_tab table{display: none;}
+.comp_tab table.current{display: block;}
+p.comp_txt{font-size: 12px;color: #646464;text-align: right;}
+/*得分率走势*/
+.scor_av{width:100%;height: 334px;margin-bottom:12px;overflow: hidden;}
+/*单项试题对比分析*/
+.stud_content .tab_anal{margin-bottom: 12px;}
+.stud_content .tab_anal th{background:#fff;font-weight: bold;}
+.stud_content .tab_anal .add_bold{font-weight: bold;}
+.comp_wrap{width: 100%;padding-bottom:78px;overflow: hidden;}
+.comp_wrap2{margin-bottom: 90px;}
+.comp_one{width: 566px;float: left;}
+h4.comp_h2{position: relative;}
+h4.comp_h2 span{position: absolute;right:0;top:10px;}
+h4.comp_h2 span i{width: 13px;height: 13px;background: #1fad75;margin-top:22px;float:left;}
+h4.comp_h2 span b{padding-left:8px;font-size: 14px;color: #4b4b4b;font-weight:normal;float:left;}
+.comp_two{width: 566px;float: right;}
+
+/*----成绩查询（按班级查询）*/
+/*注：公用按学生查询的样式*/
+.refer_result table.grade{}
+.refer_result table td.grade_td{padding-left: 28px;text-align: left;}
+td.details a{color: #1fad75;text-decoration: underline;}
+.pb100{padding-bottom: 100px;margin-bottom: 0;}
+/*弹出框*/
+.alert_grade{width: 814px;position:absolute;top: 108px;left: 50%;margin-left:-407px;background:#fff;z-index: 311;overflow: hidden;}
+.alert_grade p.title{height: 50px;background: #1fad75;}
+.alert_grade p.title span{width:80%;padding-left: 28px;line-height: 50px;font-size: 20px;color: #fff;font-weight: bold;float: left;}
+.alert_grade p.title a{width: 17px;height: 17px;background:url(../../i/t/close.png) no-repeat;margin:17px 26px 0 0;float: right;}
+.alert_grade .alert_prw{width: 740px;border-top: 1px solid #e6e6e6;border-left: 1px solid #e6e6e6;margin:38px auto;}
+.alert_prw table{width: 100%;}
+.alert_prw table th,.alert_prw table td{height: 44px;line-height: 44px;text-align:center;border-right: 1px solid #e6e6e6;border-bottom: 1px solid #e6e6e6;font-size: 14px;color: #4b4b4b;font-family:"宋体";}
+.alert_prw table th{background: #fafafa;}
+.alert_grade p.title2{height:38px;font-size: 18px;color: #4b4b4b;padding-left: 39px;}
+.pie_graph{width: 100%;height: 218px;padding-bottom: 45px;}
+.pie_graph img{width:212px;height: 218px;margin: 0 auto;display: block;}
+.alert_grade p.title3{padding-left: 39px;height: 24px;padding-bottom: 50px;}
+.alert_grade p.title3 i{width:10px;height:10px;margin:7px 8px 0 22px;float: left;}
+.alert_grade p.title3 i.i1{background: #1fad75;}
+.alert_grade p.title3 i.i2{background: #1f6cad;}
+.alert_grade p.title3 i.i3{background: #00b5dc;}
+.alert_grade p.title3 i.i4{background: #ff9f00;}
+.alert_grade p.title3 i.i5{background: #6f2cc9;}
+.alert_grade p.title3 span{line-height:24px;font-size: 12px;color: #4b4b4b;font-family:"宋体";float: left;}
+.bgDiv{width: 100%;background: #000;opacity: 0.5;position:absolute;left:0;top:0;z-index: 300;height: 1200px;}
+
+/*----成绩查询（按考试查询）*/
+/*注：公用按学生查询的样式*/
+.refer_result table td.fleft{text-align: left;}
+table.tab_single tr th,table.tab_single tr td{height: 44px;line-height: 44px;}
+table.tab_single tr th{font-weight: bold;background: #fff;}
+table.tab_single tr th.cur,table.tab_single tr td.cur{font-weight: normal;background: #fafafa;}
+
+/*----手工组卷*/
+h4.flo_h4{position: relative;}
+h4 span.flo_s{font-size:12px;color:#646464;font-family:"宋体";font-weight:normal;position: absolute;top:14px;left: 72px;}
+h4 span.flo_s i{color: #ff0014;font-style: normal;padding-right:4px;}
+ul.b_pract1,ul.b_pract2{width:1000px;}
+ul.b_pract1 li,ul.b_pract2 li{width: 126px;height: 143px;border: 1px solid #e6e6e6;border-radius: 5px;background: #fff;margin-right:35px;margin-bottom:34px;cursor:pointer;float: left;}
+ul.b_pract1 li.current,ul.b_pract2 li.current{width: 122px;height: 139px;border: 3px solid #1fad75;}
+ul.b_pract1 li:hover,ul.b_pract2 li:hover{width: 122px;height: 139px;border: 3px solid #1fad75;}
+ul.b_pract1 li span,ul.b_pract2 li span{width:72px;height: 72px;margin:14px auto 0;display: block;}
+ul.b_pract1 li p,ul.b_pract2 li p{width: 100%;height: 46px;line-height: 46px;text-align: center;font-size: 20px;color: #4b4b4b;}
+ul.b_pract2 li p.cur{font-size: 16px;}
+table.tab_w985{width: 985px;}
+table.tab_w985 td span.spans{width: 19px;height: 19px;margin: 0 auto;background:url(../../i/t/span_1.jpg) no-repeat;display: block;cursor: pointer;}
+table.tab_w985 td span.current{background: url(../../i/t/span_2.jpg) no-repeat;}
+p.bpract_p{padding:16px 0 158px;}
+p.bpract_p a{width: 176px;height: 50px;line-height: 50px;text-align: center;color: #fff;font-size: 20px;background: #ff9500;display: block;}
+p.hand_ps{font-size: 12px;color: #4b4b4b;font-family:"宋体";}
+p.hand_ps i{color: #ff0014;padding-right: 6px;font-style: normal;line-height: 30px;}
+
+/*----题库*/
+/*注：和成绩查询公用头部*/
+/*选题*/
+.pos_r{position: relative;}
+.refer_wrap a.a_cur{width: 119px;height: 44px;line-height: 44px;text-align: center;background: #ff9500;color: #fff;font-size:18px;position: absolute;top:-14px;right: 0;}
+/*选择分类*/
+.mt28{margin-top:28px;}
+p.wrong_txt,p.wrong_txt2{line-height:28px;text-align:center;margin-bottom: 19px;font-size: 14px;font-family: "宋体";}
+p.wrong_txt label,p.wrong_txt a,p.wrong_txt2 label,p.wrong_txt2 a{float: left;}
+p.wrong_txt label,p.wrong_txt2 label{width: 73px;height: 28px;background: url(../../i/t/bg_1.jpg) no-repeat right center #c1c1c1;color: #fff;margin-right: 28px;}
+p.wrong_txt span,p.wrong_txt2 span{width: 1096px;float: left;}
+p.wrong_txt a,p.wrong_txt2 a{padding: 0 14px;color: #4b4b4b;}
+p.wrong_txt a.current,p.wrong_txt2 a.current{background: #1fad75;color: #fff;}
+/**/
+.choose_cont{border: 1px solid #e6e6e6;height: 44px;line-height:44px;background: #fafafa;font-size: 14px;color: #646464;font-family: "宋体";}
+.choose_cont span{width: 19px;height: 19px;margin: 0 auto;background:url(../../i/t/span_1.jpg) no-repeat;margin:13px 6px 0 24px;cursor: pointer;float: left;}
+.choose_cont span.current{background: url(../../i/t/span_2.jpg) no-repeat;}
+.choose_cont b{font-weight: normal;float: left;}
+/*题目*/
+.subj_wrap{margin-top:35px;border: 1px solid #e6e6e6;border-bottom: none;}
+.subj_wrap p.topic{height: 44px;line-height:44px;border-bottom: 1px solid #e6e6e6;}
+.subj_wrap p.bg{background: #fafafa;}
+.subj_wrap p.topic span{height:44px;line-height:44px;text-align:center;border-right: 1px solid #e6e6e6;font-size: 14px;color: #4b4b4b;font-family: "宋体";float: left;}
+.subj_wrap p.topic span.no_bd{border-right: 0;}
+.subj_wrap p.topic span.sps_1{width: 226px;}
+.subj_wrap p.topic span.sps_2{width: 226px;}
+.subj_wrap p.topic span.sps_3{width: 224px;}
+.subj_wrap p.topic span.sps_4{width: 110px;}
+.subj_wrap p.topic span.sps_5{width: 404px;}
+.subj_wrap p.topic span.sps_5 a{width:64px;height:25px;line-height:25px;background:#1fad75;color:#fff;display: inline-block;text-align: center;}
+.subj_wrap p.topic span.sps_5 a.curr{background: #ff9500;}
+.subj_wrap p.topic span.sps_5 a.curr2{background: #c1c1c1;}
+/*展开详情*/
+.subj_wrap div.anal_box{border-bottom: 1px solid #e6e6e6;border-top: 2px solid #f0f0f0;display: none;}
+.subj_wrap div.an_2{padding:20px 350px 20px 15px;font-size: 14px;color: #4b4b4b;font-family: Arial;}
+.subj_wrap div.an_2 h4{height: 40px;line-height: 40px;font-weight:bold;}
+.subj_wrap div.an_2 h4 span{padding-left:32px;float: left;}
+.subj_wrap div.an_2 h4 b{padding-left:150px;font-weight:normal;float: left;}
+.subj_wrap div.an_2 p{line-height: 20px;text-indent: 2em;}
+.subj_wrap div.an_2 p.ps_cur{padding: 10px 0;}
+
+/*----手工组卷-题型选题-固定模板(题型选题)*/
+/*注：和成绩查询公用头部*/
+.choose_box{width: 100%;margin-top:35px;}
+.choose_box .subj_wrap{margin-top:0;}
+.cho_fl{width:922px;min-height:10px;float: left;}
+.cho_fl p.topic span.sps_1{width: 206px;padding:0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;_text-overflow:clip;display:inline-block;vertical-align:middle;}
+.cho_fl p.topic span.sps_2{width: 176px;padding:0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;_text-overflow:clip;display:inline-block;vertical-align:middle;}
+.cho_fl p.topic span.sps_3{width: 164px;}
+.cho_fl p.topic span.sps_4{width: 108px;}
+.cho_fl p.topic span.sps_5{width: 220px;}
+.cho_fl p.topic span.sps_5_1,.cho_fl p.topic span.sps_6{width: 108px;}
+.cho_fl p.topic span.sps_5 a{width:64px;height:25px;line-height:25px;font-size:12px;background:#1fad75;color:#fff;display: inline-block;text-align: center;}
+.cho_fl div.an_2{padding:20px 44px;}
+/*题型*/
+.quest_types{float: right;position: relative;}
+.types_wrap{width: 224px;padding:0 16px;border:1px solid #e6e6e6;}
+.types_dl{padding:18px 0 0 0;}
+.types_dl dt{border-bottom: 1px solid #e6e6e6;padding-bottom: 6px;margin-bottom: 8px;}
+.types_dl dt h6{height: 28px;line-height:28px;font-size: 18px;color: #4b4b4b;}
+.types_dl dt h6 i{padding-right:6px;color: #1fad75;font-size: 12px;font-style: normal;}
+.types_dl dt h6 b{font-weight: bold;}
+.types_dl dt h6 em{padding-left: 6px;}
+.types_dl dt p{height: 22px;line-height: 22px;font-family: "宋体";font-size: 12px;color: #646464;}
+.types_dl dd{height: 28px;line-height: 28px;font-size: 16px;color: #4b4b4b;}
+.types_dl dd em{padding-left: 12px;}
+.types_dl dd i{color: #ff9500;font-style: normal;}
+.quest_types a.types_a{width:100%;height: 44px;line-height: 44px;background: #ff9500;font-size: 18px;text-align: center;color: #fff;margin:26px 0;display: block;}
+.quest_types a.types_atop{width: 39px;height: 39px;background: url(../../i/t/footer_1.jpg) no-repeat center;display: block;position: absolute;bottom: 0;right: -39px;}
+/*----手工组卷-题型选题-固定模板(试卷选题)*/
+/*注：和成绩查询公用头部*/
+.sort{background:none;font-size: 14px;color: #646464;font-family: "宋体";}
+.sort span{width:100px;height:44px;margin:0;color:#4b4b4b;background:none;text-align:center;border-right:1px solid #e6e6e6;float: left;}
+.sort span.bg{background: #fafafa;color: #646464;}
+.sort span i{width:10px;height:13px;background:url(../../i/t/boult.png) no-repeat -13px 0;margin:16px 9px 0 16px;float: left;}
+.sort span i.cur{background:url(../../i/t/boult.png) no-repeat 0 0;}
+.sort span em{float: left;}
+/*----试卷管理（我的试卷）*/
+.mr40{margin:40px 0 24px;}
+.sj_manage{width: 100%;}
+.sj_manage .state_as{width: 31px;float: left;}
+.sj_manage .state_as a{width: 31px;height: 140px;padding-top:40px;text-align:center;font-size:14px;color:#fff;font-family:"宋体";background:url(../../i/t/sj_bg1.jpg) no-repeat;display: block;}
+.sj_manage .state_as a.state_bg{background: url(../../i/t/sj_bg2.jpg) no-repeat;}
+.sj_manage .state_2{width: 1166px;border-top:1px solid #e6e6e6;border-left:1px solid #e6e6e6;margin-bottom:100px;float: left;}
+.sj_manage .state_2 div.state_divs{width: 100%;display: none;}
+.sj_manage .state_2 div.current{display: block;}
+.sj_manage .state_2 table.state_tab{width: 100%;font-size:14px;font-family:"宋体";color: #4b4b4b;}
+table.state_tab tr th,table.state_tab tr td{height: 44px;text-align: center;border-bottom:1px solid #e6e6e6;border-right:1px solid #e6e6e6;}
+table.state_tab tr th{background: #fafafa;}
+table.state_tab tr td.td_a a{width:86px;text-align:center;display: inline-block;}
+table.state_tab tr td.td_a a i,table.state_tab tr td.td_a a b{float: left;}
+table.state_tab tr td.td_a a b{padding:6px 0 0 6px;font-weight: normal;}
+table.state_tab tr td.td_a a i{margin:7px 0 0 18px;background: url(../../i/t/boult.png) no-repeat;}
+table.state_tab tr td.td_a a i.i1{width: 18px;height: 18px;background-position:0 -13px;}
+table.state_tab tr td.td_a a i.i2{width: 17px;height: 17px;background-position:-20px -13px;}
+table.state_tab tr td.td_a a i.i3{width: 19px;height: 17px;background-position:-40px -13px;}
+table.state_tab tr td.td_a a i.i4{width: 18px;height: 18px;background-position:-60px -13px;}
+table.state_tab tr td.td_a a i.i5{width: 18px;height: 18px;background-position:-80px -13px;}
+table.state_tab tr td.td_a a i.i6{width: 18px;height: 18px;background-position:-100px -13px;}
+/*----试卷管理（组织考试）*/
+/*注：公用试卷管理（我的试卷）*/
+.sj_manage .state_2 div.issue{width:1087px;padding:44px 0 0 80px;border-right:1px solid #e6e6e6;border-bottom:1px solid #e6e6e6;}
+div.issue .issue_c{height: 40px;margin-bottom: 25px;font-size: 16px;color: #646464;}
+.issue_c label,.chos_eaxm label{line-height:40px;text-align:left;width: 172px;float: left;}
+.issue_c .issue_mat{width:730px;float: left;}
+.issue_mat span.spn{width: 19px;height: 19px;background:url(../../i/t/span_1.jpg) no-repeat;margin:13px 6px 0 0;cursor: pointer;float: left;}
+.issue_mat span.cur{background:url(../../i/t/span_2.jpg) no-repeat;}
+.issue_mat b{line-height:40px;font-weight:normal;float: left;}
+.issue_mat b.bs_1{padding: 0 14px 0 5px;}
+.issue_mat b.bs_2{padding:0 12px;}
+.issue_mat input{width: 142px;padding:10px 6px;height: 18px;line-height: 18px;border:1px solid #e6e6e6;float: left;}
+.issue_mat select{height: 38px;line-height: 38px;border:1px solid #e6e6e6;color:#646464;float: left;}
+.issue_mat select,.issue_mat select option{max-width:720px;text-overflow: ellipsis;vertical-align: middle;white-space: nowrap;overflow: hidden;}
+.issue_mat select option{padding: 0;}
+.issue_dl{padding:0 0 25px 172px;font-size: 16px;color: #646464;}
+.issue_dl dt{height: 40px;}
+.issue_dl dd{width:560px;overflow: hidden;}
+.issue_dl span.spn2{width: 13px;height: 13px;border: 1px solid #d2d2d2;background:#fff;margin:13px 6px 0 0;cursor: pointer;display: inline-block;}
+.issue_dl span.spn2 i{width:9px;height:9px;background: #fff;margin: 2px auto 0;display: block;}
+.issue_dl span.spn2 i.cur2{background: #1fad75;}
+.issue_dl b.bs_1{line-height:40px;font-weight:normal;padding: 0 14px 0 5px;display: inline-block;}
+.issue_dl dd b.bs_1{padding: 0 32px 0 5px;}
+/*选择试卷*/
+.chos_eaxm{padding-bottom:62px;}
+.chos_eaxm label{height:25px;line-height: 25px;font-size: 16px;color: #646464;}
+.choose_eaxm{width: 600px;float: left;}
+.choose_eaxm a{height:25px;line-height:25px;text-align:center;padding:0 10px;background: #1fad75;color: #fff;font-size: 12px;font-family: "宋体";margin:0 6px 10px;float: left;}
+a.start_write{width: 177px;height: 50px;line-height: 50px;font-size:20px;text-align: center;color: #fff;background: #ff9500;display: block;margin-bottom:82px;}
+/*考试列表*/
+table.state_tab tr td.td_a a i.i_amend{width: 15px;height: 16px;background-position:-119px -13px;}
+table.state_tab tr th.click_audit{background: url(../../i/t/bg_2.png) no-repeat 90px center #fafafa;cursor: pointer;position: relative;}
+div.audit_box{width: 112px;background:#e6e6e6;border-top:1px solid #f6f6f6;position: absolute;top:40px;left: 0;display: none;}
+div.audit_box a{width:100%;height: 28px;line-height: 28px;text-align: center;border-bottom:1px solid #f6f6f6;display: block;overflow: hidden;}
+div.audit_box a.cur{background: #fafafa;}
+.lists{border:1px solid #e6e6e6;}
+/*弹出框*/
+.eaxm_list{width: 814px;background: #fff;position: absolute;top:108px;left: 50%;margin:0 0 0 -407px;z-index:320;}
+.eaxm_list p.title{height: 50px;background: #1fad75;}
+.eaxm_list p.title span{width:80%;padding-left: 28px;line-height: 50px;font-size: 20px;color: #fff;font-weight: bold;float: left;}
+.eaxm_list p.title a{width: 17px;height: 17px;background:url(../../i/t/close.png) no-repeat;margin:17px 26px 0 0;float: right;}
+table.wd738{width: 738px;margin: 38px auto 0;}
+table.wd738 td span.spans{width: 19px;height: 19px;margin: 0 auto;background:url(../../i/t/span_1.jpg) no-repeat;display: block;cursor: pointer;}
+table.wd738 td span.current{background: url(../../i/t/span_2.jpg) no-repeat;}
+.eaxm_list .list_p{padding: 60px 0;text-align: center;}
+.list_p a{width: 110px;height: 44px;line-height: 44px;text-align:center;font-size:18px;color:#fff;margin:0 8px;display: inline-block;}
+.list_p a.a_1{background: #ff9500;}
+.list_p a.a_2{background: #1fad75;}
+/*----试卷管理（试卷批改）*/
+/*注：公用试卷管理（我的试卷、组织考试）*/
+p.eaxm_correct{text-align: left;padding: 10px 0;font-family: "宋体";color: #646464;}
+table.state_tab tr td.td_a a.a_correct{width: 100px;}
+table.state_tab tr td.td_a a.a_preview{color: #1fad75;text-decoration: underline;}
+table.state_tab tr td.td_a a i.i8{width: 16px;height: 14px;background-position: -139px -13px;margin-top:9px;}
+.add_bdrb{width:1169px;border-right: 1px solid #e6e6e6;border-bottom: 1px solid #e6e6e6;}
+/*弹出框（在线批改）*/
+.online_correct{padding: 45px 62px 0;}
+.tkbox{width:80px;border:#000 solid 1px;border-width:0 0 1px 0;text-align:center;display:inline-block;}
+.tktb{display:inline-block;}
+.tkt{width:118px;border:#000 solid 1px;border-color:#fff #fff #000 #fff;margin:0 12px 15px 6px;}
+.words{font-family: arial;color:#4b4b4b;line-height: 24px;font-size: 14px;padding: 10px 0;}
+p.online_cps{padding: 10px 0;color:#4b4b4b;font-size: 14px;}
+p.online_cps label,p.online_cps input,p.online_cps textarea{float: left;}
+p.online_cps label{width: 88px;height: 40px;line-height: 40px;font-size: 16px;color: #646464;}
+p.online_cps input{width: 140px;padding:0 6px;color:#4b4b4b;height: 38px;line-height:38px;border: 1px solid #e6e6e6;}
+p.online_cps textarea{width: 446px;height: 130px;color:#4b4b4b;border: 1px solid #e6e6e6;}
+
+/*----阅读理解录题 （阅读理解组合）*/
+p.sttemp_p{margin-bottom: 0;}
+p.sttemp_p span{width: 132px;font-size: 18px;}
+p.sttemp_p span.span_cur{width: 133px;}
+.sttemp_content{background: #fafafa;border: 1px solid #e6e6e6;padding:42px 0 0 50px;margin-bottom: 100px;}
+/**/
+.sttemp_list{height: 40px;color: #646464;font-size: 16px;padding-bottom: 25px;}
+.sttemp_list span,.sttemp_list select,.sttemp_list input,.sttemp_list span.click_sp{float: left;}
+.sttemp_list span{width: 52px;line-height: 40px;text-align: left;}
+.sttemp_list span.wd90{width: 90px;}
+.sttemp_list select,.sttemp_list input{width: 153px;height:38px;line-height: 38px;color: #646464;margin-right: 36px;}
+.sttemp_list input{width: 140px;padding:0 6px;border: 1px solid #e6e6e6;}
+span.click_sp{width: 13px;height: 13px;border: 1px solid #d2d2d2;background:#fff;margin:13px 6px 0 0;cursor: pointer;display: inline-block;}
+span.click_sp i{width:9px;height:9px;background: #fff;margin: 2px auto 0;display: block;}
+span.click_sp i.cur2{background: #1fad75;}
+h6.sttemp_h6{height: 45px;line-height: 45px;font-size: 16px;color: #646464;}
+/*插件*/
+.temp_plugin{width: 1046px;padding-bottom: 20px;}
+p.temp_ps{text-align: center;padding:50px 50px 50px 0;}
+p.temp_ps a{width: 110px;height: 44px;line-height: 44px;text-align: center;font-size: 18px;color: #fff;background: #1fad75;margin:0 10px;display: inline-block;}
+p.temp_ps a.a_1{background: #ff9500;}
+/*----阅读理解录题 （添加子题前）*/
+.stem_cont{width: 680px;line-height:20px;color: #4b4b4b;font-family: Arial;font-size: 14px;}
+h6.sttemp_h6 b{width:62px;font-weight: normal;float: left;}
+h6.sttemp_h6 span.temp_sp{padding-top:10px;float: left;}
+h6.sttemp_h6 span.temp_sp a{width: 80px;height: 25px;line-height:25px;text-align:center;font-size:14px;color:#fff;font-family: "宋体";background:#1fad75;margin:0 8px;float: left;}
+/*----阅读理解录题 （单选子题）*/
+.temp_bdt{border-top:1px solid #e6e6e6;margin-top:40px;}
+.sttemp_pss{height: 44px;}
+.sttemp_pss b{line-height: 44px;font-size: 24px;color: #4b4b4b;font-weight: normal;}
+span.click_spp{width: 19px;height: 19px;margin: 0 auto;background:url(../../i/t/span_1.jpg) no-repeat;margin:13px 6px 0 0;cursor: pointer;float: left;}
+span.click_spp2{background:url(../../i/t/span_2.jpg) no-repeat;}
+.temp_edit{position: relative;}
+.temp_operate{width:60px;position:absolute;right:38px;top:66px;}
+.temp_operate a{margin:0 4px;width: 20px;height: 20px;line-height:17px;color:#fff;font-size:20px;font-weight:bold;text-align: center;background: #1fad75;float: left;}
+span.hint_sp{line-height: 28px;text-align: center;color:#ff0014;font-size:"宋体";display: block;}
+span.hint_sp2{text-align: left;padding-left: 428px;}
+/*----阅读理解录题 （填空子题）、 阅读理解录题 （填空子题-插入填空）*/
+/*参考答案*/
+.cons_key{padding: 30px 0;}
+.cons_key2{padding: 0;}
+.cons_key dt{width:92px;color: #646464;font-size: 16px;height: 40px;line-height: 40px;float:left;}
+.cons_keydd{width: 360px;float: left;}
+.result_box{height: 40px;margin-bottom: 10px;color:#646464;}
+.result_box b{width: 50px;line-height:40px;text-align: center;font-size:14px;font-family:'宋体';font-weight:normal;float: left;}
+.result_box input{width:140px;padding:0 6px;height:38px;line-height:38px;color:#646464;border:1px solid #e6e6e6;margin-right:16px;float: left;}
+/*加号、减号*/
+a.plus_sign{margin:10px 4px 0;width: 20px;height: 20px;line-height:17px;color:#fff;font-size:20px;font-weight:bold;text-align: center;background: #1fad75;float: left;}
+/*----阅读理解录题 （添加子提后）*/
+/*注：公用阅读理解录题 （添加子题前）*/
+.add_cross dt{height:50px;line-height:50px;font-size: 24px;color: #4b4b4b;}
+.cross_dd{width:1046px;border: 1px solid #e6e6e6;background: #fff;}
+.cross_ddtop{height: 38px;border-bottom: 1px solid #e6e6e6;}
+.cross_ddtop b,.cross_ddtop span{line-height:38px;float: left;}
+.cross_ddtop b{width: 82px;height: 38px;font-size:16px;color:#ababab;font-weight:normal;text-align:center;background: url(../../i/t/cross_dd.jpg) no-repeat right top #fafafa;}
+span.score_sp{width:120px;padding-left:10px;font-size: 12px;color: #646464;font-family: "宋体";}
+span.handle_sp{width:120px;padding-right:16px;float: right;}
+span.handle_sp a{float: left;}
+span.handle_sp a.as{font-size: 12px;font-family: "宋体";color: #1fad75;text-decoration: underline;padding:0 6px;}
+span.handle_sp a.arrows_1,span.handle_sp a.arrows_2{margin:12px 3px 0;height: 15px;background: url(../../i/t/arrows.png) no-repeat;}
+span.handle_sp a.arrows_1{width:13px;background-position: 0 0;}
+span.handle_sp a.arrows_2{width:12px;background-position: -18px 0;}
+.import_wrap{padding:20px;}
+.import_wrap textarea{width:100%;height: 160px;resize: none;border: 0;line-height:20px;color: #4b4b4b;font-family: Arial;font-size: 14px;}
+h6.sttemp_h6 a.amend{padding-left:6px;font-size:12px;font-weight:normal;color:#1fad75;text-decoration:underline;display: inline-block;}
+/*----阅读理解录题 （修改大题题干）*/
+/*注：公用阅读理解录题 */
+.crosh_content{padding-bottom: 60px;}
+.crosh_content h6{font-size: 16px;color: #646464;height: 40px;line-height: 40px;}
+.crosh_dl{padding:10px 0;overflow: hidden;}
+.crosh_dl dt{height: 44px;padding-bottom: 10px;}
+.crosh_dl dt b{padding-right:8px;line-height:44px;font-weight:normal;font-size: 22px;color: #4b4b4b;float: left;}
+.crosh_dl dt span{padding-top:10px;font-size: 12px;color: #646464;font-family: "宋体";float: left;}
+.crosh_dl dd{line-height:20px;color: #4b4b4b;font-family: Arial;font-size: 14px;overflow: hidden;}
+/*----试卷管理（编辑-固定模板）and  试卷管理（编辑-随机模板）  and   试卷管理（试卷预览）*/
+/*注：公用 手工组卷-题型选题-固定模板 */
+.exampap{border:1px solid #e6e6e6;padding:20px 20px 20px 40px;}
+.exampap .examp_title{padding: 10px 0;}
+.examp_title h2.ep_h2,.examp_title p.ep_p{height:42px;line-height:42px;font-size:14px;text-align: center;font-family:'Arial Negreta', 'Arial';font-weight:bold;overflow: hidden;}
+h2.ep_h2 b,h2.ep_h2 span{display: inline-block;}
+h2.ep_h2 span{padding-left:30px;background:url(../../i/t/ep_h2.jpg) no-repeat 12px center;font-weight:normal;font-size: 12px;color: #646464;font-family: "宋体";cursor: pointer;}
+h2.ep_h2 b{position: relative;}
+h2.ep_h2 span{position: absolute;right: -100px;top: 0;}
+/*题目*/
+.topic_tit{height: 42px;overflow: hidden;position: relative;}
+.topic_tit:hover span.ep_handle{display: block;}
+.topic_tit b,.topic_tit span,.topic_tit em{display: inline-block;}
+.topic_tit b{padding-left: 24px;line-height:42px;font-size:14px;text-align:left;font-family:'Arial Negreta', 'Arial';font-weight:bold;}
+.topic_tit span{}
+.topic_tit em{padding-left: 60px;}
+span.ep_handle{position: absolute;top:9px;right:0;display: none;}
+span.ep_handle a{padding:0 10px;height: 25px;line-height:25px;text-align:center;font-size: 12px;color: #fff;font-family: "宋体";float: left;}
+.bgg{background: #1fad75;}
+.bgo{background:#ccc;}
+.bdbg{background: #ff9500;}
+.ep_details{font-family:'Arial Negreta', 'Arial';font-size: 14px;position: relative;}
+.ep_details p{text-indent: 2em;}
+.ep_details p.cur1{padding: 10px 0;}
+.ep_details p span{padding-right: 40px;}
+.quest_types{border:1px solid #e6e6e6;}
+.types_wrap{border: none;}
+a.types_add{hieght:43px;line-height:43px;text-align:center;background:#fafafa;border-bottom:1px solid #e6e6e6;font-size: 16px;color: #4b4b4b;display: block;}
+a.types_add:hover{text-decoration:none;}
+a.types_add em{font-weight: bold;font-size: 20px;}
+/*----试卷管理（编辑-随机模板）*/
+span.ep_handle a.bgimg{height:23px;border: 1px solid #e6e6e6;}
+span.ep_handle a.bgimg em{width: 13px;height: 15px;background:url(../../i/t/arrows.png) no-repeat 0 0;padding-left:0;margin-top:4px;display: inline-block;}
+span.ep_handle a.bgimg em.cur{background:url(../../i/t/arrows.png) no-repeat -18px 0;}
+.topic_tit span.allscore{padding-left:6px;position: absolute;top: 4px;}
+em.pdl100{padding-left: 100px;}
+/*----试卷管理（试卷预览）*/
+.cho_slide{border: 1px solid #e6e6e6;}
+.cho_slide .exampap{width: 922px;border: none;}
+p.p_time{text-align: right;}
+/*----手工组卷-固定模板(生成试卷)*/
+span.ep_handle a.colg{color: #1fad75;}
+/*弹出框（试卷标题修改）*/
+.compi{width: 450px;height: 280px;background: #fff;position:fixed;top:50%;left: 50%;margin:-140px 0 0 -225px;z-index:323;}
+.compi .list_p{padding: 0;}
+.compi_p{height: 40px;padding: 36px 0 50px;}
+.compi_p label{width:130px;line-height: 40px;text-align: right;font-size: 16px;color: #646464;margin-right: 18px;float: left;}
+.compi_p input{width:232px;height: 38px;line-height: 38px;padding: 0 6px;border: 1px solid #e6e6e6;font-size: 16px;color: #4b4b4b;}
+/*弹出框（下载）*/
+.downl{padding: 20px 0 0 70px;font-size: 16px;color: #646464;}
+.downl .downl_p1{line-height: 40px;text-align: left;}
+.downl .downl_p2,.downl .downl_p3{height: 28px;line-height: 28px;}
+span.bgspan{width: 19px;height: 19px;background:url(../../i/t/span_1.jpg) no-repeat;display: block;cursor: pointer;}
+span.bgspan2{background: url(../../i/t/span_2.jpg) no-repeat;}
+.downl .downl_p2 span{padding:0 10px;float: left;}
+.downl .downl_p2 span.bgspan{margin-top:4px;padding:0;}
+.downl .downl_p3{padding-bottom: 30px;}
+.downl .downl_p3 em{font-size: 12px;font-family: "宋体";color: #999;}
+/*弹出框（温馨提示）*/
+.swhint{width: 356px;height: 192px;margin:-96px 0 0 -178px;}
+.swhint p.title{background:#c1c1c1;}
+.swhint_txt{padding-top:50px;height:28px;line-height:28px;font-size: 18px;color: #646464;text-align: center;}
+.swhint_txt i,.swhint_txt span{display: inline-block;}
+.swhint_txt i{width: 33px;height: 23px; background: url(../../i/t/boult.png) no-repeat -168px 0;}
+/*----题型选题-随机模板(试卷选题)*/
+a.compile{height: 26px;line-height: 26px;padding-left:26px;font-size: 14px;font-weight:bold;text-decoration:none;margin-top:8px;background:url(../../i/t/compile.jpg) no-repeat 9px center #f1f1f1;display: block;}
+/*----题库(多选录题)*/
+.nomt{margin-top: 0;}
+/*----题库(判断录题)*/
+h6.sttemp_h6 em.txt{font-size: 12px;font-family: '宋体';padding: 0 16px;display: inline-block;}
+.judge{height: 40px;padding-bottom:20px;}
+.judge span,.judge b,.judge input{float: left;}
+.judge b{line-height: 40px;font-size: 24px;color: #4b4b4b;font-weight: normal;}
+.judge input{padding:0 6px;width: 168px;height: 38px;color: #4b4b4b;line-height:38px;font-size:14px;border: 1px solid #e6e6e6;margin: 0 44px 0 14px;}
+/*----题库（填空录题-插入填空2）*/
+p.insert{height:40px;padding-left: 50px;}
+p.insert input,p.insert span{float: left;}
+p.insert input{margin:7px 6px 0 0;}
+p.insert span{line-height:40px;color: #4b4b4b;}
+/*----题库（完形填空录题）*/
+h6.sttemp_h6 span.sp_red{padding-left:10px;font-size: 12px;color: #fe0014;font-family: "宋体";display: inline-block;}
+dt.wd52{width: 52px;}
+.result_box b.bbs{width:28px;text-align:left;line-height: 40px;font-size: 24px;color: #4b4b4b;font-weight: normal;font-family: "微软雅黑";}
+dd.keydd2{width: 730px;}
+.wd330{width: 330px;float: left;}
+/*----题库（口语录题）*/
+p.gossip{height: 40px;line-height: 40px;color: #4b4b4b;font-family: "宋体";}
+p.gossip span,p.gossip input,p.gossip i{float: left;}
+p.gossip input{width: 192px;padding: 0 6px;height: 38px;line-height: 38px;border: 1px solid #e6e6e6;color: #4b4b4b;}
+p.gossip span{padding:0 4px 0 10px;font-size: 14px;}
+p.gossip i{font-style: normal;}
+/*----题库（改错录题）*/
+p.corre{padding:4px 0 20px;color: #ff0014;font-size:12px;font-family: "宋体";}
+.nopt{padding-bottom: 0;}
+/*2015-03-10 style*/
+.types_dl dt h6 i,.types_dl dt h6 b,.types_dl dt h6 em{float: left;}
+.types_dl dt h6 b{height: 28px;max-width: 134px;overflow: hidden;}
+
+/* 2015-03-12 */
+.types_dl dd{height:28px;overflow: hidden;}
+.types_dl dd span,.types_dl dd em,.types_dl dd i{float:left;}
+.types_dl span.js_span{max-width:168px;overflow: hidden;}
+.temp_plugin{width: 92%;}
+span.hint_1{color: #f00;font-size: 12px;line-height: 40px;padding-left: 6px;}
+/*添加题干*/
+.jsplu_box{width: 100%;padding-bottom: 22px;margin-bottom:20px;position: relative;}
+a.jsplu_close{width:20px;height:20px;background:url(../../i/t/close.png) no-repeat center center #1fad75;position: absolute;top:0;right: 0;display:block;}
+a.jsplu_add{width:60px;height:22px;line-height:22px;text-align:center;color:#fff;background:#1fad75;position: absolute;bottom:0;right: 0;}
+/* 2015-03-16 */	
+.eaxmli{position: fixed !important;height: 620px;margin: -310px 0 0 -407px;top:50%;display: none;}
+.eaxmli .list_p{padding:30px 0 0;}
+.addeaxm1,.addeaxm3{width: 450px;height: 280px;background: #fff;position:fixed;top:50%;left: 50%;margin:-140px 0 0 -225px;z-index:323;}
+.addeaxm2{width: 356px;height: 192px;margin:-96px 0 0 -178px;}
+.online_correct{padding: 0 62px 0;}
+.exonl{height: 360px;overflow-y: auto;margin-top:45px;}								
+.xmlist{height: 600px;position: fixed !important;top:50%;margin:-300px 0 0 -407px;}
+.tissue{margin-top:38px;height:350px;overflow-y: auto;}
+table.wd738{margin:0 auto;}
+span.ep_handle a.bgimg{background: #fff;}
+/*手工组卷 2015-03-19 */
+ul.b_pract1 li.jsdisabel{cursor: not-allowed;}
+ul.b_pract1 li.jsdisabel:hover{width: 126px;height: 143px;border: 1px solid #e6e6e6;border-radius: 5px;}
+.issue_dl dd{width: 578px;}
+.issue_dl dd b,.issue_dl dd span{float: left;}
+.issue_dl dd b.bs_1{width:82px;height:40px;overflow: hidden;}
+.js_lastdl{display:none;}
+.showdl{display:block;}
+/*校验 2015-03-23————2015-03-24*/
+span.form_txt{color: #f00;font-size: 12px;padding: 10px 0 0 6px;float:left;}
+.jschose{float: left;padding-left: 172px;width: 600px;}
+.jschose span{ float: left;color: #646464;font-size: 16px;line-height: 30px;margin: 0 6px;padding: 0 4px;}
+span.form_txt2{color: #f00;font-size: 12px;}  
+p.jsaexam{width:600px;padding-left: 172px;color: #f00;font-size: 12px;float: left;}
+/*添加浮层 2015-03-26*/
+.jstxl{width:256px;margin-left:18px;float:left;}
+.no_mess{padding:166px 0 0;width:100%;text-align:center;font-size:20px;height:60px;}
+/*成绩查询添加时间插件  2015-04-03*/
+.refer_wrap{position: relative;}
+.refer_result table th{height: 44px;text-align:center;font-size:14px;font-family:"宋体";}
+.refer_result table th.download{padding-right: 25px;text-align: right;}
+.refer_result table th.download a{color: #1fad75;text-decoration: underline;}
+.jdate{position: absolute;top:3px;right:362px;}
+.jdate input{padding:5px 6px;width: 142px;font-size:14px;border: 1px solid #e6e6e6;color: #646464;height: 18px;line-height: 18px;float: left;}
+.jdate b{padding:6px 4px 0;font-size: 16px;color: #646464;float: left;}
+.jdate b.jb1{font-size: 14px;font-weight:normal;}
+/*2015-04-07*/
+td.jqutxt1 p,td.jqutxt2 p,td.jqutxt3 p,td.jtequ p,.subj_wrap p.topic span.sps_1,.subj_wrap p.topic span.sps_2{text-overflow: ellipsis;vertical-align: middle;white-space: nowrap;overflow: hidden;}
+td.jqutxt1,td.jqutxt1 p{width:172px;}
+td.jqutxt2,td.jqutxt2 p,td.jqutxt3,td.jqutxt3 p{width:200px;}
+td.jtequ,td.jtequ p{width: 195px;}
+
+/*统计图  2015-04-08*/
+.echarts-box{width:1200px;overflow:auto;}
+table.state_tab tr th.jsnobr,table.state_tab tr td.jsnobr{border-right:0;}
+.jsainline{padding:0 10px 0 16px;}
+.add_bdrb{width: 1167px;}
+p.eaxm_correct{position:absolute;top:8px;left:472px;width:240px;}
+/*试题栏浮层*/
+.choose_box{ position:relative;min-height:800px;}
+.jstxl{ background:#fff;box-sizing: border-box;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-webkit-transition: background 500ms ease-out ;-moz-transition: background 500ms ease-out ;-o-transition: background 500ms ease-out ;transition: background 500ms ease-out ;z-index:100;}
+.autofix_sb.fixed2.bottom {bottom:0; position: absolute !important;}
+.autofix_sb.fixed2 {position: fixed !important;left: auto;}
+
+/*下载报告  2015-04-13*/
+.alert_grade p.title a.jsxz{position:absolute;right:50px;top:0;color:#fff;font-size:12px;width:60px;background:none;}
+.ep_details:hover{border:1px solid #ccc;}
+.jsnobl .state_2{border-left:none;}
+.jsnobl .state_divs{border-left:1px solid #e6e6e6;}
+.sj_manage .min-height{min-height:362px;}
+div.issue .issue_c,.issue_dl,.chos_eaxm label{font-size:14px;font-family:"宋体";}
+.sttemp_list span.stbq{width:84px;}
+
+.jp_ltmb{position:relative;}
+p.p_ltmb{width:93%;margin-left:7%;}
+.jp_ltmb .ltmb{position:absolute;top:13px;left:0;  color: #646464;font-size: 16px;font-weight:normal;}
+p.p_ltmb{border-bottom:none;}
+.q-question-body{border:1px solid #d6d6d6;margin-top:20px;}
+p.p_ltmb span{border-bottom:1px solid #d6d6d6;}
+table.tab_single tr th.j_dxtj{width:170px;}
+table.tab_single tr th.j_dxtj p{width:170px;text-overflow: ellipsis;vertical-align: middle;white-space: nowrap;overflow: hidden;}
+.jsnom h4.h4_o { color: #4B4B4B;font-size: 18px; font-weight: bold; height: 54px; line-height: 54px;padding-top: 10px;}
+.types_wrap{width: 236px;padding:0 10px;}
+.types_dl span.js_span{max-width:170px;}
+a.types_add img{display: inline-block;margin: 14px 4px 0 0;}
+table.state_tab tr td.td_a a.a_cor2{color:#cdcdcd;cursor:inherit;width:100px;}
+.hint{width:468px;padding:10px 0 10px 20px;margin:15px auto 0;background:#1fad75;color:#fff;font-size:12px;position:relative;}
+.hintbtn{width:20px;height:20px;background:url(/platform/i/images/hintbtn.png) no-repeat; position:absolute;right:15px;top:9px;}
+
+/*解决考试题目粗体斜体等样式**/
+.ep_details strong{font-weight:bold;}
+.ep_details i{font-style:italic;}

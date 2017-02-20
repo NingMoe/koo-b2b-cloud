@@ -1,0 +1,353 @@
+@charset "utf-8";
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}
+dl,dt,dd,ul,ol,li{display:block;}
+html{color:#000;overflow-y:scoll;}
+body,button,input,select,textarea{font-size:12px;font-family:arial,\5b8b\4f53,sans-serif}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+em{font-style:normal}
+small{font-size:12px}
+ul,ol{list-style:none}
+a{text-decoration:none;color:rgb(27,102,204)}
+a:hover{text-decoration:underline}
+legend{color:#000}
+fieldset,img{border:0}
+button,input,select,textarea{font-size:100%}
+table{border-collapse:collapse;border-spacing:0;}
+img{-ms-interpolation-mode:bicubic}
+textarea{resize:vertical}
+label,label input{vertical-align: middle;}
+label input{margin-right:3px;}
+.tab2{WORD-WRAP: break-word;TABLE-LAYOUT: fixed;word-break:break-all;}/*table自动换行*/
+.hh{word-break:break-all;}/*div自动换行*/
+.mb10{margin-bottom: 10px;}
+.mb20{margin-bottom: 20px;}
+.fl{float:left;display:inline;}
+.fr{float:right;display:inline;}
+.fc:after { content:"."; display:block; height:0; clear:both; visibility:hidden; }
+.fc{zoom:1;}
+.cl{clear:both;}
+.hide{visibility:hidden;}
+.hide2{display:none;}
+.disp_ib{display:inline-block;}
+
+.fhd{background:rgb(35,83,149)}
+
+.ftab{width:100%;}
+.ftab td{ vertical-align:top;}
+.fleft,.fright{ vertical-align: top;width:100%}
+.fleft,.ltree{width:168px;}
+.shijuan .fleft{width:auto;background:#fff;}
+.shijuan .ltree{width:430px;}
+.shijuan .ltreeh{width:414px;}
+.ltree{position:relative;z-index:1;zoom:1;}
+.ltreeBx{position:relative;}
+div.ltreeBx{border-right:rgb(177,227,241) solid 4px;}
+.ltreeBx1{overflow:hidden;position:relative;}
+.ltreeBx2{width:200px;}
+.LR_btn{position:absolute;top:50%;margin-top:-50px;right:-10px;z-index:999;height:100px;width:10px;background:rgb(178,226,240) url(http://images.koolearn.com/www/subject/kaoshi/ic4.png) 0 center no-repeat; cursor:pointer;}
+.LR_btnr{background-position:-15px center;}
+.fleft{background: rgb(237,250,253);}
+.ltree li{margin-bottom:1px;zoom: 1;}
+.shijuan .ltree li{margin-bottom:0;}
+.shijuan .ltree dd{margin-top:0;padding-left:0;}
+.ltree dd{margin-top:1px;display:none;font-size:12px;}
+.ltree .op dd{display:block;}
+.ltree .ltdl2 dd{display:none;}
+.ltree .op .op dd{display:block;}
+.ltree .op .op dd dd{display:none;}
+.ltree .op .op .op dd{display:block;}
+.ltree dt{background: rgb(193,233,245);font-size:14px;font-weight:bold;cursor: pointer;}
+.ltree dt,.ltree dd,.lism{padding-left: 30px; position: relative;line-height:34px;z-index:1;}
+.h34,.ltree dt,.lism{height:34px;}
+.ltreeBx .ltree .mmore1bx{z-index:3;}
+.ltreeBx .ltree .opf{z-index:2;}
+.ltree i{position: absolute;display:block;width:10px;height:10px;overflow:hidden;font-size:0;background:url(http://images.koolearn.com/www/subject/kaoshi/ic1.gif) no-repeat;}
+.ltree dt i{background-position: center 0;left:10px;top:12px;}
+.ltree dd i{right:-20px;top:12px;}
+.ltree dd a{color:rgb(2,2,2)}
+.ltree dd.sd,.ltree dd.hv{background:#fff}
+.ltree .sd a{color:rgb(152,152,152)}
+.ltree .op dt i,.shijuan .op .op dt i,.shijuan .op .op .op dt i{background-position: center -10px;}
+.ltree dd.sd i{background-position: center -20px;right:4px;}
+.shijuan .ltdl2 dt{background: rgb(235,251,254);padding-left:36px;}
+.shijuan dt,.shijuan .ltdl2 .jb3,.lism{border-bottom:rgb(177,226,241) solid 1px;}
+.shijuan .ltdl2 dd{background: rgb(255,255,255);}
+.shijuan .ltdl2 dd.jb3{padding-left:36px;}
+.shijuan .jb2b dd.jb3{padding-left:42px;}
+.shijuan .jb2b dt{padding-left:42px;}
+.shijuan .jb2b dd.jb3 .tit3{width:164px;}
+.shijuan .jb2b dt .tit2{width:214px;}
+.shijuan .ltree div.sd,.shijuan .ltree dd.sd,.shijuan .ltree dt.sd{background: rgb(253,248,198);}
+.shijuan .ltdl2 dt i{background-position: center 0;left:16px;}
+.shijuan .ltdl2 .ltdl3 dt i{background-position: center 0;}
+.shijuan .jb2b dt i{left:22px;}
+.zrdb{display:inline-block;width:14px;height:14px;background:url(img/zrdb.gif) no-repeat; vertical-align:top; position:relative;left:-5px;top:10px;}
+.ltdl2 dt{font-size:12px;font-weight:normal;}
+.path{line-height:34px;height:34px;background:rgb(241,241,241);padding-left:24px;}
+.path a{color:#000;}
+.path span{padding:0 6px;color:#000;}
+.path em{color:rgb(154,154,154)}
+.wp1{padding:20px 20px 20px 24px;width:740px;}
+.wp1-lr{margin-left:24px;margin-right:20px;}
+.wp1-lrt{padding-top:20px;padding-bottom:20px;}
+.menu_div{height:36px;width:100%;background:rgb(85,85,85); position:relative}
+.menu{height:36px;width:1000px;background:rgb(85,85,85); position:relative}
+.menu li{float:left;white-space:nowrap;background:rgb(85,85,85);}
+.menu li.posa{float:none;position: absolute;top:0;}
+.menu dt{font-size:14px;line-height: 36px;padding:0 15px; cursor: default;}
+.menu dt,.menu dt a{color:#fff;}
+.menu dd{display:none;border-bottom:rgb(183,183,183) solid 1px;line-height:30px;padding:0 15px;}
+.menu .hv dt,.menu .hv a{color:#000;}
+.menu .hv dt,.menu .hv dd{background:rgb(235,235,235)}
+.menu .hv dd{display:block;}
+.fml{margin-bottom:15px;line-height:30px;}
+.rd{font-size:14px;font-weight:bold;color:red;}
+.tit{font-weight:bold;display: inline-block;width:70px;text-align:right; vertical-align:top;}
+.a1{font-size:14px;margin-left:12px; text-decoration: underline}
+.ipt{height:26px;line-height:26px;width:210px;padding:0 5px;border:#999 solid 1px;color:#999;vertical-align: middle;}
+.iptover{border-color:rgb(44,138,210);color:#000;}
+.fmt{padding:10px 0 20px;}
+.ipta{width:738px;height:170px;margin-bottom:5px;}
+.ipta2{width:610px;height:220px;margin-bottom:5px;}
+.pyTxt .fmbx2 .ipta{width:577px;height:80px;}
+.pyTxt .fmone .ipta{width:610px;}
+.ta_r{text-align:right;}
+.ta_c{text-align:center;}
+.btn1{width:84px;height:28px;background:#48a4e8;border:rgb(15,53,85) solid 1px;text-align:center;display:inline-block;line-height:28px;color:#fff;vertical-align: middle;}
+.btn1:hover{text-decoration: none;background:#427eb8}
+.btn2{width:84px;height:28px;background:rgb(240,240,240);border:rgb(152,152,152) solid 1px;text-align:center;display:inline-block;line-height:28px;color:rgb(97,97,97);vertical-align: middle;}
+.btn2:hover{text-decoration: none;}
+.btn3{width:60px;height:22px;background:rgb(255,255,255);text-align:center;display:inline-block;line-height:22px;color:rgb(0,0,0);vertical-align: middle;}
+.btn3:hover{text-decoration: none;}
+.btn1_a,.btn2_a{width:60px;height:22px;line-height:22px;}
+.btn1_b,.btn2_b{width:8 0px;height:22px;line-height:22px;}
+.btn1_b{height:22px;line-height:22px;}
+#confirmConTxt .btn1{color:#fff;}
+#confirmConTxt .btn2{color:rgb(97,97,97);}
+.wh1{width:420px;}
+.fn{padding-left:10px;display:inline-block;}
+.fn a{display:inline-block;width: 22px;height:22px;margin-left:10px;background-image:url(http://images.koolearn.com/www/subject/kaoshi/ic2.png);_background-image:url(http://images.koolearn.com/www/subject/kaoshi/ic2.gif);background-repeat:no-repeat;cursor: pointer;}
+.fn a:hover{text-decoration: none;}
+.edit{background-position: 0 0;}
+.add{background-position: -29px 0;}
+.remove{background-position: -57px 0;}
+.up{background-position: -85px 0;}
+.down{background-position: -113px 0;}
+.edit:hover{background-position: 0 -26px;}
+.add:hover{background-position: -29px -26px;}
+.remove:hover{background-position: -57px -26px;}
+.up:hover{background-position: -85px -26px;}
+.down:hover{background-position: -113px -26px;}
+.fmbx{margin-bottom:20px;}
+.fmbx1 li{padding:7px 0;}
+.fmbx1 input,.fmbx1 .fn,.fmbx1 a{vertical-align: middle;}
+.fmbx .fmfn{width:32px;}
+.fmbx .num{width:32px;height:38px;line-height:38px;background: rgb(193,234,245);font-size:22px;font-weight:bold;color:#fff;font-style:italic;text-align:center;vertical-align: top;}
+.fmbx .fmclose{display:block;width:32px;height:38px;background: rgb(240,240,240) url(http://images.koolearn.com/www/subject/kaoshi/close2.png) center 12px no-repeat;}
+.fmbx .fmclose:hover{background: rgb(255,156,154) url(http://images.koolearn.com/www/subject/kaoshi/close2.png) center -56px no-repeat;}
+.fmbx1 ul{float:left;width:705px;border:#ccc solid 1px;display:inline;padding:3px 0;}
+.fmbx2 .ipta{float:left;width:705px;display:inline;}
+.fmbx1 .xh{float:left;width:32px;height:30px;line-height:30px;font-size:18px;text-align:center;vertical-align:middle;}
+.fmone .fmfn{display:none;}
+.fmone ul{width:auto;float:none;display:block;}
+.fmone .ipta{width:738px;float:none;display:block;}
+.tab2{width:100%;}
+.tab2 td{width:20%;padding-top:15px;}
+.bdb1{border-bottom:#999 solid 1px;padding-bottom:15px;}
+.bdb2{border-bottom:#ccc solid 1px;}
+.bdt1{border-top:#999 solid 1px;padding-top:15px;}
+.tab2 .a1{margin-left:0;margin-top:20px;}
+.pd1{padding:10px 0;}
+.pd2{padding:10px 15px;}
+.ml1{margin-left:15px;}
+.ml2{margin-left:20px;}
+.ml3{margin-left:80px;}
+.ml4{margin-left:8px;}
+
+
+/**
+Popup.js 	
+*/
+.dialogBoxClose{width:18px;height:18px;background: url(http://images.koolearn.com/www/subject/kaoshi/close.png) no-repeat;}
+.dialogBoxClose2{background-position: 0 -18px;}
+.rightTxt,.errorTxt,.confirmTxt,.WarningTxt{padding:24px;display:inline-block;font-size:14px;font-weight:bold;}
+.rightTxt{background: url(http://images.koolearn.com/www/subject/kaoshi/right.png) 0 center no-repeat;}
+.errorTxt{background: url(http://images.koolearn.com/www/subject/kaoshi/errorTxt.png) 0 center no-repeat;}
+.ft1{font-size:14px;font-weight:bold;}
+.ft1_1{font-weight:bold;}
+.ft2{font-size:12px;color:#999;}
+.ft3{font-size:14px;}
+#confirmConTxt .winbx1 .tabs a{color:#000;}
+#confirmConTxt .winbx1 .tabs .sd{color:#999;}
+.winbx1 .tabs a{margin-right:10px;display:inline-block;font-size:12px;}
+.winbx1 .tabs1 a{margin-right:4px;font-size:20px;}
+#confirmConTxt .list1 a{color:#000;font-size:12px;}
+.list1{border:#ccc solid 1px;height:200px;overflow:auto;line-height:24px;padding:8px;}
+.list1 li{float:left;display:inline;width:29%;padding-left:3%;background: url(http://images.koolearn.com/www09/class/common/dot5.gif) 4% center no-repeat;}
+#confirmConTxt .list1 li .sd{color:#1e60ce;background: #c1e8f5}
+
+.tklist li{float:left;width:24%;padding-bottom:10px;}
+.ipt2{width:140px;border:#000 solid 1px;border-width:0 0 1px 0;}
+.ipt2_ext{width:140px;border:#000 solid 1px;border-width:0 0 1px 0;}
+.tktit{display:inline-block;width:30px;text-align:right;}
+.tkbox{width:80px;border:#000 solid 1px;border-width:0 0 1px 0;text-align:center;display:inline-block;}
+.lab1{display:inline-block;width:180px;}
+.lab2{display:inline-block;width:60px;}
+.lab3{display:inline-block;width:110px;}
+.lab4{display:inline-block;width:350px;}
+.lab5{display:inline-block;width:470px;}
+.ipt3{width:45px;}
+.ipt4{width:90px;}
+.ipt5{width:130px;}
+.wh_at{width:auto;}
+.wh2{width:400px;}
+.gjc{height:226px;}
+.gjclist{padding-left:6em;}
+.gjclist li{float:left;display:inline;margin-right:10px;margin-top:10px;height:26px;line-height:26px;padding:0 6px;border:rgb(140,190,228) solid 1px;background:rgb(225,245,250);zoom:1;}
+.close3{display:inline-block;width:18px;height:26px;background:url(http://images.koolearn.com/www/subject/kaoshi/close3.png) right center no-repeat; cursor:pointer; vertical-align:top; *vertical-align:middle;}
+.ltreeh{background:rgb(133,210,235);padding:8px;}
+.ltreeh .h2{text-align:center;font-size:14px;font-weight:bold;line-height:30px;zoom:1;}
+.hot{color:red;font-weight:bold;}
+.tit1,.tit2,.tit3,.tit4,.sjnum{display:inline-block;white-space:nowrap;overflow:hidden;}
+.tit1{width:225px;}
+.tit2{width:220px;}
+.tit3{width:170px;}
+.tit4{width:246px;}
+.sjnum{width:50px;text-align:right;}
+.ltree .fn{top:6px; position:relative; vertical-align:top;}
+.mmore{display:block;position:absolute;z-index:2;width:45px;font-size:12px;font-weight:normal;color:rgb(99,99,99);top:0px;right:5px;}
+.mmore .lkul{position:absolute;z-index:2;line-height:24px;display:none;border:rgb(151,151,151) solid 1px;background:#fff;padding:8px;top:23px;right:0;}
+.mmore1 .lkul{display:block;}
+.mmore .ic{display:block;position:absolute;z-index:1;top:11px;right:0;width:16px;height:10px;border:rgb(151,151,151) solid 1px;background:#fff url(http://images.koolearn.com/www/subject/kaoshi/ic3.png) center 2px no-repeat;font-size:0;overflow:hidden;}
+.mmore .lkul a{display:block;white-space:nowrap;color:#333}
+.mmore1 .ic{border-bottom:none;height:12px;z-index:3;}
+.mmore1{z-index:3;}
+.lism,.shijuan .ltdl2 .lism{background:rgb(244,244,244);}
+.lism,.shijuan .ltdl2 .lism{padding-left:10px;}
+.jtbTab td{font-size:12px;padding-top:5px;}
+.tab3{border:rgb(205,205,205) solid 1px;border-bottom-width:0;line-height:24px;}
+.tab3 td{padding:0 30px;border-bottom:rgb(205,205,205) solid 1px;}
+.error1{background:url(http://images.koolearn.com/www/subject/kaoshi/ic6.png) 0 center no-repeat;padding-left:18px;margin-left:10px;color:#c00;display:none;}
+span.error{background:url(http://images.koolearn.com/www/subject/kaoshi/ic6.png) 0 center no-repeat;padding-left:18px;margin-left:10px;color:#c00;display:none;}
+.cbx1{margin:8px 0 0 10px}
+.ontab1 .ontabhd{z-index:1;height:33px;line-height:32px;border:rgb(170,170,170) solid 1px;border-width:0 0 1px 1px;}
+.ontab1 .ontabfn{float:left;display:inline;height:32px;width:115px;text-align:center;position:relative;z-index:2;border:rgb(170,170,170) solid 1px;border-width:1px 1px 0 0;background:rgb(241,241,241);font-size:14px;cursor:pointer;}
+.ontab1 .selected{height:33px;background:#fff;margin-bottom:-1px;}
+.tab4{border-top:rgb(204,204,204) solid 1px;border-left:rgb(204,204,204) solid 1px;min-width:740px;}
+.tab4 td,.tab4 th{border-bottom:rgb(204,204,204) solid 1px;border-right:rgb(204,204,204) solid 1px;line-height:20px;padding:5px;text-align:center;}
+.tab4 th{background:rgb(241,241,241);}
+.tab4 .a1{font-size:12px;}
+.tab4 .td41 .a1{margin-left:0;}
+.tab4 .invalid{color:#999;}
+.tab4 td.td42{text-align:left;}
+.td41{width:140px;table-layout:fixed;white-space:normal; word-break:break-all;}
+.td43{width:60px}
+.td44{width:150px}
+.pages{padding:20px 0;text-align:center;position:relative;}
+.pages .bt{display:inline-block;border:rgb(241,241,241) solid 1px;margin-right:3px;}
+.pages .bt span,.pages .bt a{display:inline-block;border:rgb(204,204,204) solid 1px;background:#fff;height:22px;line-height:22px;padding:0 8px;color:rgb(57,104,199);}
+.pages .bt .sd,.pages .bt a:hover{ text-decoration:none;background:rgb(221,241,255);}
+.pages .ta_r{position:absolute;top:20px;right:0;width:auto;}
+.nodata{padding:20px 0;}
+.tb1{display:inline-block;vertical-align:middle;text-align:center;padding:0 3px;height:14px;background:rgb(86,174,0);color:#fff;font-weight:bold;margin:0 10px;}
+.tb2{background:rgb(145,220,71);margin:0 3px;}
+.tb3{background:url(http://images.koolearn.com/www/subject/kaoshi/tb3.png) center center no-repeat;margin:0 3px;display:inline-block;vertical-align:top;width:12px;height:14px;}
+.tb4{background:#FFE6E6;}
+.tb4a{height:14px;width:14px;display:inline-block;margin-right:8px;vertical-align:middle;background:url(http://images.koolearn.com/www09/class/newCenter/zwbz.gif)}
+.fmone .hide2{display:none;}
+#zstfm .xh{float:none;}
+#zstfm .cbx1{margin:0 0 0 10px}
+.tab4 .fn{padding-left:0;padding-right:10px;top:4px; position:relative;}
+.pxfm .xh{width:70px;}
+.tab5{border-top:#b1b1b1 solid 1px;border-left:#b1b1b1 solid 1px;min-width:740px;}
+.tab5 td,.tab5 th{padding:6px 0;text-align:center;border-right:#b1b1b1 solid 1px;border-bottom:#b1b1b1 solid 1px;font-size:14px;font-weight:bold;}
+.tab5 th{background:#b9eaf5;}
+.w100{width:100%}
+.tab6 td,.tab6 th{text-align:left;padding-left:10px;}
+.tab6 .tab3,.tab6 .tab3 td{border:none;}
+.fmt1 .fmfn{margin-right:10px;}
+.fmt1 .gjclist,.gjclist1{display:inline;padding:0;}
+.fmt1 .gjclist li,.gjclist1 li{margin-top:0;margin-bottom:10px}
+
+.zrkfrm{width:300px;height:600px;}
+.zrktd{width:300px;}
+.arrowLeft{padding-left:20px;background:url(http://images.koolearn.com/www/subject/kaoshi/arrow-1-left.png) 0 center no-repeat;}
+.trbg1{}
+.trbg1a{background:rgb(223,223,223)}
+.trbg2{display:none;}
+.trbg3{background:rgb(241,241,241)}
+.tab4 .td415{padding:0;text-align:left;}
+.td415 td{border:none;text-align:left;}
+.td415 .pd2{line-height:30px;}
+.bx1{padding:8px 10px;}
+.bx2{border:#CCCDCC solid 1px;border-top-width:0;}
+.bx2 .trbg3{border-top:#CCCDCC solid 1px; line-height:24px;}
+.bx2 .pd2{line-height:26px;}
+.bx2 .trbg3 td{padding:0 8px;}
+.tab4_child{border:red solid 2px;}
+.tab4_child td{border:#CCCDCC solid 1px; }
+.tab4_child .td45{width:512px; text-align:right;}
+.number1{ text-align:center; background:#ccc; vertical-align:middle;font-size:24px; color:#fff; font-weight:bold;}
+
+
+/*考试三期*/
+.fhd_rl{ position:absolute;right:20px;top:40px;color:#fff; font-weight:bold;width:8em;}
+.fhd_rl2{position:absolute;right:70px;top:40px;color:#fff; font-weight:bold;}
+.fhd_rl2 a{color:#fff;margin-left:20px;}
+.fhd_rl:hover,.fhd_rl2 a:hover{color:#fff;}
+.tmpTit{font-size:14px;font-weight:bold;color:#666;margin-bottom:20px;}
+.tmpBx{width:850px;margin:20px auto;}
+.tmpTit{margin-top:40px;}
+.mykm{margin:0 30px 12px 0; float:left; display:inline; height:57px; line-height:57px;width:4.3em; text-align:center; color:#7C7D7C;font-size:14px;background:url(http://images.koolearn.com/www/subject/kaoshi/kskm.gif) repeat-x; border:#AFB0AF solid 1px;}
+.addkm{display:block;height:57px;color:#7C7D7C;font-size:12px;line-height:140px;width:5em; text-align:center;background:url(http://images.koolearn.com/www/subject/kaoshi/ksjia.gif) no-repeat; border:#AFB0AF solid 1px; text-indent:-5px;white-space:nowrap;}
+.mykm:hover{ text-decoration:none;}
+.addkm:hover{ text-decoration:none;background-position:-61px 0;}
+.mykmed{background-position:0 -57px;color:#fff;border-color:#3379D6;}
+.kmsall{max-height:330px; overflow:auto; font-weight:normal;}
+.popupFn{ text-align:center;}
+.kms .lh2{line-height:28px;}
+.kms .pd_1{padding-left:0.5em;padding-right:0.5em;width:3.3em;}
+.kms .pd_2{padding-left:1em;padding-right:1em;width:2.3em;}
+#confirmConTxt .mykm{color:#7C7D7C;}
+#confirmConTxt .mykmed{color:#fff;}
+.tmpTit1{margin-top:10px;font-size:12px;color:red;margin-bottom:20px;}
+
+/*cuidingfeng 3qi*/
+.zhaoci{width:685px;border:#ABADB3 solid 1px;padding:10px;float:left;display:inline;margin-bottom:10px;}
+.zhaoci .ipta{width:685px;}
+.fmone .zhaoci{width:718px;}
+.fmone .zhaoci .ipta{width:718px;}
+.zhaoci .gjclist{padding-left:0;}
+.zhaoci .gjclist dd{display:block;margin-bottom:10px;}
+.liTag{margin-right:10px; display:inline-block;height:26px;line-height:26px;padding:0 6px;border:rgb(140,190,228) solid 1px;background:rgb(225,245,250);}
+
+.zhaocuo ul{padding-left:10px;}
+.zhaocuo .ipt{width:660px;}
+
+/*分页*/
+.pageblk{text-align:center;font-size:14px; width:100%; float:left;}
+.pageblk a,.pageblk a:visited,.pageblk .on{border:1px solid #ccc;background:#ffffff;padding:4px 7px;text-decoration:none;color:#000002;}
+.pageblk a:hover{background:#DFEFFA;text-decoration:none;color:#3366CC;}
+.pageblk .on{background:#427eb8;color:#FFFFFF;font-weight:bold;border:none;padding:5px 8px;}
+.pageblk .an{background:#EEF6E9;}
+.pageblk .an a,.pageblk .an a:visited{border:1px solid #8CCD89;color:#037F00;}
+.pageblk .an a:hover{background:#007E00;text-decoration:none;color:#FFF;}
+.pageblk .l{display: inline-block}
+/*分页结束*/
+.tip{color:red;padding-left:5px;}
+
+
+/*最近操作的记录*/
+.op1{margin: 10px 20px 20px 20px}
+.tab7{border:rgb(204,204,204) solid 1px;width:90%;}
+.tab7 td,.tab7 th{border-bottom:rgb(204,204,204) solid 1px;line-height:20px;padding:5px;text-align:left;}
+.tab7 th{background:rgb(241,241,241);}
+.tab7 .fn{padding-left:0;padding-right:10px;top:4px; position:relative;}
+.tab7 .fn a{margin:0;}
+.td71{width:50%;table-layout:fixed;white-space:normal; word-break:break-all;}
+.more{float: right;margin-right: 13%;margin-top: 10px;font-size: 14px;}
+.help_div{padding:10px 20px 10px 20px;}
+.help_title{font-size: 16px;color:#48a4e8;font-weight: bold; line-height: 26px;}
+.help_date{color:#999;line-height: 26px;}
+.help_content{padding-top:20px;}
+.help_link{float:right;padding-right:20px;background-image: url("../images/help.png");width:24px;height:24px;background-repeat: no-repeat;cursor: pointer;margin-top: 5px;}

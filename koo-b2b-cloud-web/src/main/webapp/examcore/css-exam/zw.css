@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*作文批改*/
+.p{text-indent:2em;}
+.tab1 td{padding-bottom:10px;}
+.t1d1{vertical-align:top;text-align:right;width:92px;}
+.tab1 .area1{width:450px;}
+.ZW{word-wrap:break-word;}
+.ZWBZ{background:rgb(255,230,230);}
+#ZWBZ_hover{background:rgb(50,151,253);z-index:9;}
+.fred{color:#FE0100;}
+.fred1{color:#FE0100;}
+.bzi,.bztlt,.bztrt,.bztlb,.bztrb,.bzticon{background-image:url(http://images.koolearn.com/www09/class/newCenter/zwbz.gif);background-repeat:no-repeat;}
+.bzi{height:14px;width:14px;font-size:0;display:inline-block;margin-right:8px;left:4px;vertical-align:middle;cursor:help;position:relative;text-indent:0;zoom:1;z-index:10;}
+.bztit{position:absolute;width:300px;display:none;top:0px;left:-142px;text-align:center;padding-top:22px;cursor:auto;background:url(http://images.koolearn.com/www/subject/2010_0723/blank.gif);zoom:1;z-index:12;word-break:break-all}
+.bztitbx{background:#F8E7E5;text-align:left;border:#FE0100 solid 1px;padding:5px 15px;display:inline-block;box-shadow: 3px 3px 5px 0px #eee;font-size:12px;margin:0 auto;position:relative;zoom:1;width:auto;z-index:13;}
+.bzticon{width:9px;height:6px;top:17px;left:50%;margin-left:-5px;display:block;background-position:-16px 0;z-index:14;position:absolute;}
+.bztlt,.bztrt,.bztlb,.bztrb{position:absolute;width:5px;height:5px;display:block;font-size:0;line-height:0;overflow:hidden;z-index:14;}
+.bztlt{background-position:-15px -6px;left:-1px;top:-1px;}
+.bztrt{background-position:-20px -6px;right:-1px;top:-1px;}
+.bztlb{background-position:-15px -11px;left:-1px;bottom:-1px;}
+.bztrb{background-position:-20px -11px;right:-1px;bottom:-1px;}
+.logo2{display:inline-block;font-size:22px;width:200px;font-family:"微软雅黑";color:#1F9B24;font-weight:600;margin-top:15px; line-height:40px; vertical-align:middle;border-left:#D9DAD9 solid 1px;margin-left:10px;padding-left:20px;}
+.bztit2{display:block;top:auto;left:auto;width:600px;}
+.bztit2 .bzticon{background:url(http://images.koolearn.com/www09/class/newCenter/jthui.gif) no-repeat;}
+.bztit2 .bztitbx{border-color:#999A99;background:#fff;padding-top:15px;padding-bottom:20px;}
+.tab3__zw td{border:none;text-align:left;padding:2px 5px;vertical-align:middle;}
+.bx .path{height:27px;overflow:hidden;}
+#setBZ,#setPF{display:none;}
+.tab4__zw{width:100%;}
+.tab4__zw td{padding-top:5px;padding-bottom:5px;vertical-align:top;}
+.tab4__zw .ta_r{vertical-align:middle;width:30px;}
+.tw7 input{text-align:center;}
+.bdt1{border-top:#DBDCDB solid 1px;padding-top:10px;}
+.w120{width:120px;}
+
+.db{display:block;}
+.dn{display:none;}
+.dib{display:inline-block;vertical-align:middle;}
+.b14{font-weight:bold;font-size:14px;color:#017805;}
+.lh30{line-height:26px;padding-bottom:4px;}
+.lh18{line-height:18px;}
+.area1{width:99%;height:62px;}
+.tab3__zw input{ vertical-align:middle;}
+
+.btn1 a,.btn1 a:visited,.btn1 a:hover{color:#fff;}
+.btn1_b a,.btn1_b a:visited,.btn1_b a:hover{color:#3365CA;}
+.btn1{margin-right:13px;}
+.btn1,.btn1 a,.btn1 input{background:url(http://images.koolearn.com/www09/class/newCenter/btn1.gif) no-repeat;display:inline-block;height:29px;width:auto;border:none;}
+.btn1 a,.btn1 input{line-height:29px;padding-right:15px;cursor:pointer;vertical-align:middle;font-weight:bold;background-position:right 0;position:relative;left:15px;}
+.btn1 a:hover{text-decoration:none;}
+.btn2 a,.btn2 a:visited,.btn2 a:hover{color:#fff;}
+.btn2{margin-right:13px;}
+.btn2,.btn2 a,.btn2 input{background:url(http://images.koolearn.com/www09/class/newCenter/btn1.gif) no-repeat;display:inline-block;height:29px;width:auto;border:none;}
+.btn2 a,.btn2 input{line-height:29px;padding-right:15px;cursor:pointer;vertical-align:middle;font-weight:bold;background-position:right 0;position:relative;left:15px;}
+.btn2 a:hover{text-decoration:none;}
+.btn1_l{background-position:0 -35px;}
+.btn1_l a,.btn1_l input{background-position:right -35px;font-weight:normal;color:#fff;}
+.btn1_b{background-position:0 -70px;}
+.btn1_b a,.btn1_b input{background-position:right -70px;font-weight:normal;}
+.btn1_b a,.btn1_b a:visited,.btn1_b a:hover{color:#3365CA;}

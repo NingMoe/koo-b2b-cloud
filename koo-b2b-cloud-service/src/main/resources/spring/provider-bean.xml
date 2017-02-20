@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:koo="http://www.koolearn.com/schema/test/koo" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.0.xsd
+        http://www.koolearn.com/schema/test/koo
+        http://www.koolearn.com/schema/test/koo.xsd"
+       default-autowire="byName" default-lazy-init="false">
+
+
+
+	<!-- 作业 -->
+	<bean id="taskService" class="com.koolearn.cloud.task.service.impl.TaskServiceImpl"/>
+	<dubbo:service interface="com.koolearn.cloud.task.service.TaskService" ref="taskService" protocol="dubbo"/>
+	<koo:dao id="taskDao" interface="com.koolearn.cloud.task.dao.TaskDao"/>
+	<bean id="taskDaoBuilder" class="com.koolearn.cloud.task.dao.builder.TaskDaoBuilder"/>
+	<!-- 登录注册 -->
+	<bean id="loginService" class="com.koolearn.cloud.login.service.impl.LoginServiceImpl">
+        <property name="loginDao" ref="loginDao"></property>
+	</bean>
+
+	<dubbo:service interface="com.koolearn.cloud.login.service.LoginService" ref="loginService" protocol="dubbo"/>
+	<koo:dao id="loginDao" interface="com.koolearn.cloud.login.dao.LoginDao"/>
+	<bean id="loginDaoBuilder" class="com.koolearn.cloud.login.dao.builder.LoginDaoBuilder"/>
+	
+    <!-- 教师完善资料-->
+    <bean id="teacherDataMaintainService" class="com.koolearn.cloud.teacherInfo.service.impl.TeacherDataMaintainServiceImpl"/>
+    <dubbo:service interface="com.koolearn.cloud.teacher.service.TeacherDataMaintainService" ref="teacherDataMaintainService" protocol="dubbo"/>
+    <koo:dao id="teacherDataMaintainDao" interface="com.koolearn.cloud.teacherInfo.dao.TeacherDataMaintainDao"/>
+    <bean id="teacherDataMaintainDaoBuilder" class="com.koolearn.cloud.teacherInfo.dao.builder.TeacherDataMaintainDaoBuilder"/>
+    <!-- 教师第一次登陆选择的科目-->
+    <bean id="firstLoginChoiceService" class="com.koolearn.cloud.teacherInfo.service.impl.FirstLoginChoiceServiceImpl"/>
+    <dubbo:service interface="com.koolearn.cloud.teacher.service.FirstLoginChoiceService" ref="firstLoginChoiceService" protocol="dubbo"/>
+    <koo:dao id="firstLoginChoiceDao" interface="com.koolearn.cloud.teacherInfo.dao.FirstLoginChoiceDao"/>
+
+
+   <!-- <dubbo:reference registry="klb" id="tagsDescService" timeout="6000"  interface="com.koolearn.klb.tags.service.TagsDescService" />
+	-->
+    <bean id="klbTagsUtil" class="com.koolearn.cloud.util.KlbTagsUtil" />
+    <!-- 教师首页-->
+    <bean id="classHomePageService" class="com.koolearn.cloud.teacherInfo.service.impl.ClassHomePageServiceImpl"/>
+    <dubbo:service interface="com.koolearn.cloud.teacher.service.ClassHomePageService" ref="classHomePageService" protocol="dubbo"/>
+    <koo:dao id="firstPageDao" interface="com.koolearn.cloud.teacherInfo.dao.ClassHomePageDao"/>
+
+    <bean id="classHomePageDaoBuilder" class="com.koolearn.cloud.teacherInfo.dao.builder.ClassHomePageDaoBuilder" />
+    <!--添加班级-->
+    <bean id="teacherAddClassService" class="com.koolearn.cloud.teacherInfo.service.impl.TeacherAddClassServiceImpl">
+        <property name="kooJedisClient" ref="redisClient" />
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.teacher.service.TeacherAddClassService" ref="teacherAddClassService" protocol="dubbo"/>
+    <koo:dao id="teacherAddClassDao" interface="com.koolearn.cloud.teacherInfo.dao.TeacherAddClassDao"/>
+    <!--添加学生-->
+    <bean id="teacherAddStudentService" class="com.koolearn.cloud.teacherInfo.service.impl.TeacherAddStudentServiceImpl">
+        <property name="iopenService" ref="openService"></property>
+        <property name="interfaceCloudService" ref="interfaceCloudService"></property>
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.teacher.service.TeacherAddStudentService" ref="teacherAddStudentService" protocol="dubbo"/>
+    <koo:dao id="teacherAddStudentDao" interface="com.koolearn.cloud.teacherInfo.dao.TeacherAddStudentDao"/>
+
+    <!--公共服务-->
+    <bean id="commonService" class="com.koolearn.cloud.teacherInfo.service.impl.CommonServiceImpl">
+
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.teacher.service.CommonService" ref="commonService" protocol="dubbo"/>
+
+    <!--学生和小组管理-->
+    <bean id="studentManageService" class="com.koolearn.cloud.teacherInfo.service.impl.StudentManageServiceImpl">
+        <property name="iopenService" ref="openService"></property>
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.teacher.service.StudentManageService" ref="studentManageService" protocol="dubbo"/>
+    <koo:dao id="studentManageDao" interface="com.koolearn.cloud.teacherInfo.dao.StudentManageDao"/>
+    <!--班级动态服务-->
+    <bean id="classNewStatusService" class="com.koolearn.cloud.teacherInfo.service.impl.ClassNewStatusServiceImpl"/>
+    <dubbo:service interface="com.koolearn.cloud.teacher.service.ClassNewStatusService" ref="classNewStatusService" protocol="dubbo"/>
+    <koo:dao id="classNewStatusDao" interface="com.koolearn.cloud.teacherInfo.dao.ClassNewStatusDao"/>
+    <!--班级升级服务-->
+    <bean id="schedulerClassesUpService" class="com.koolearn.cloud.teacherInfo.service.impl.SchedulerClassesUpServiceImpl">
+        <property name="teacherAddClassService" ref="teacherAddClassService" ></property>
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.teacher.service.SchedulerClassesUpService" ref="schedulerClassesUpService" protocol="dubbo"/>
+    <koo:dao id="schedulerClassesUpDao" interface="com.koolearn.cloud.teacherInfo.dao.SchedulerClassesUpDao"/>
+
+    <!--班级课堂和作业查询服务-->
+    <bean id="classesResourceService" class="com.koolearn.cloud.teacherInfo.service.impl.ClassesResourceServiceImpl">
+           <property name="commonService" ref="commonService" />
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.teacher.service.ClassesResourceService" ref="classesResourceService" protocol="dubbo"/>
+    <koo:dao id="classesResourceDao" interface="com.koolearn.cloud.teacherInfo.dao.ClassesResourceDao"/>
+    <bean id="classesResourceDaoBuilder" class="com.koolearn.cloud.teacherInfo.dao.builder.ClassesResourceDaoBuilder" />
+       <!-- 资源-->
+    <bean id="resourceInfoService" class="com.koolearn.cloud.resource.service.impl.ResourceInfoServiceImpl" />
+    <dubbo:service interface="com.koolearn.cloud.resource.service.ResourceInfoService" ref="resourceInfoService" protocol="dubbo"/>
+    <koo:dao id="resourceDao" interface="com.koolearn.cloud.resource.dao.ResourceDao"/>
+
+    <dubbo:registry id="kooZookeeper" protocol="zookeeper" default="false" />
+
+    <dubbo:reference id="openService" interface="com.koolearn.sso.service.IOpenService" timeout="6000" registry="kooZookeeper"  check="false"/>
+
+    <dubbo:reference id="customerService" interface="com.koolearn.sso.service.ICustomerService" timeout="6000" registry="kooZookeeper"/>
+
+    	<!-- 老师个人中心 -->
+	<bean id="teacherInfoService" class="com.koolearn.cloud.teacherInfo.service.impl.TeacherInfoServiceImpl">
+		<property name="iopenService" ref="openService"></property>
+	</bean>
+	<dubbo:service interface="com.koolearn.cloud.teacher.service.TeacherInfoService" ref="teacherInfoService" protocol="dubbo"/>
+	<koo:dao id="teacherInfoDao" interface="com.koolearn.cloud.teacherInfo.dao.TeacherInfoDao"/>
+	<bean id="teacherInfoDaoBuilder" class="com.koolearn.cloud.teacherInfo.dao.builder.TeacherInfoDaoBuilder"/>
+
+    <!-- 翻转课堂 -->
+    <bean id="classRoomService" class="com.koolearn.cloud.classRoom.service.impl.ClassRoomServiceImpl"/>
+    <dubbo:service interface="com.koolearn.cloud.classRoom.service.ClassRoomService" ref="classRoomService" protocol="dubbo"/>
+    <koo:dao id="classRoomDao" interface="com.koolearn.cloud.classRoom.dao.ClassRoomDao"/>
+    <bean id="classRoomDaoBuilder" class="com.koolearn.cloud.classRoom.dao.builder.ClassRoomDaoBuilder"/>
+
+    <!--学生班级首页展示-->
+    <bean id="studentClassHomeService" class="com.koolearn.cloud.studentHome.impl.StudentClassHomeServiceImpl">
+        <property name="teacherAddClassesService" ref="teacherAddClassService" ></property>
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.student.StudentClassHomeService" ref="studentClassHomeService" protocol="dubbo"/>
+    <koo:dao id="studentClassHomeDao" interface="com.koolearn.cloud.studentHome.dao.StudentClassHomeDao"/>
+
+    <!--学生所有作业课堂展示-->
+    <bean id="studentAllSubjectExamService" class="com.koolearn.cloud.studentHome.impl.StudentAllSubjectExamServiceImpl">
+           <property name="teacherAddClassesService" ref="teacherAddClassService" />
+            <property name="teacherAddClassDao" ref="teacherAddClassDao"/>
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.student.StudentAllSubjectExamService" ref="studentAllSubjectExamService" protocol="dubbo"/>
+    <koo:dao id="studentAllSubjectExamDao" interface="com.koolearn.cloud.studentHome.dao.StudentAllSubjectExamDao"/>
+
+    <!--添加作文的dubboService-->
+    <koo:dao id="compositionDao" interface="com.koolearn.cloud.composition.dao.CompositionDao"></koo:dao>
+    <bean id="compositionDaoBuilder" class="com.koolearn.cloud.composition.dao.builder.CompositionDaoBuilder"></bean>
+    <bean id="compositionService" class="com.koolearn.cloud.composition.service.CompositionServiceImpl">
+        <property name="compositionDao" ref="compositionDao"></property>
+        <property name="loginDao" ref="loginDao"></property>
+        <property name="classRoomDao" ref="classRoomDao"></property>
+        <property name="dictionaryDao" ref="dictionaryDao"></property>
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.composition.service.CompositionService" ref="compositionService" protocol="dubbo"></dubbo:service>
+
+
+
+</beans>

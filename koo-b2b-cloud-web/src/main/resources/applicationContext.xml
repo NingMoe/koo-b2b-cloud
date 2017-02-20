@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.0.xsd"
+       default-autowire="byName" default-lazy-init="false">
+    <!-- 定时任务 -->
+    <task:annotation-driven/>
+    <dubbo:reference id="taskService" interface="com.koolearn.cloud.task.service.TaskService"/>
+    <!--  老师完善资料服务 -->
+    <!-- 登录注册 iSmsClientService服务在zk1集群-->
+    <dubbo:reference id="openService" interface="com.koolearn.sso.service.IOpenService" registry="kooZookeeper" check="false"/>
+    <dubbo:reference id="loginService" interface="com.koolearn.cloud.login.service.LoginService"/>
+    <dubbo:reference id="iSmsClientService" interface="com.koolearn.mc.sms.service.ISmsClientService"
+                     registry="klb"/>
+    <dubbo:reference id="teacherDataMaintainService"
+                     interface="com.koolearn.cloud.teacher.service.TeacherDataMaintainService"/>
+    <dubbo:reference id="firstLoginChoiceService"
+                     interface="com.koolearn.cloud.teacher.service.FirstLoginChoiceService"/>
+    <!--  老师跳转首页 -->
+    <dubbo:reference id="classHomePageService" interface="com.koolearn.cloud.teacher.service.ClassHomePageService"/>
+    <!--老师创建班级-->
+    <dubbo:reference id="teacherAddClassService" interface="com.koolearn.cloud.teacher.service.TeacherAddClassService"/>
+    <!--创建学生-->
+    <dubbo:reference id="teacherAddStudentService" interface="com.koolearn.cloud.teacher.service.TeacherAddStudentService"/>
+    <!--学生和小组-->
+    <dubbo:reference id="studentManageService" interface="com.koolearn.cloud.teacher.service.StudentManageService"/>
+    <!--查询班级动态服务-->
+    <dubbo:reference id="classNewStatusService" interface="com.koolearn.cloud.teacher.service.ClassNewStatusService"/>
+    <!--班级升级服务-->
+    <dubbo:reference id="schedulerClassesUpService" interface="com.koolearn.cloud.teacher.service.SchedulerClassesUpService"/>
+
+    <!--查询班级课堂和作业服务-->
+    <dubbo:reference id="classesResourceService" interface="com.koolearn.cloud.teacher.service.ClassesResourceService"/>
+    <!--公共服务-->
+    <dubbo:reference id="commonService" interface="com.koolearn.cloud.teacher.service.CommonService"/>
+
+    <!-- 资源 -->
+    <dubbo:reference id="resourceInfoService" interface="com.koolearn.cloud.resource.service.ResourceInfoService"/>
+    <!-- 老师个人中心 -->
+    <dubbo:reference id="teacherInfoService" interface="com.koolearn.cloud.teacher.service.TeacherInfoService"/>
+    <!-- 翻转课堂 -->
+    <dubbo:reference id="classRoomService" interface="com.koolearn.cloud.classRoom.service.ClassRoomService"/>
+    <!-- 考试相关 begin -->
+    <dubbo:reference id="examService" interface="com.koolearn.cloud.task.service.ExamService"/>
+    <dubbo:reference id="examResultService" interface="com.koolearn.cloud.exam.examcore.exam.service.ExamResultService"/>
+    <!-- 考试相关 end -->
+    <!--学生班级首页-->
+    <dubbo:reference id="studentClassHomeService" interface="com.koolearn.cloud.student.StudentClassHomeService"/>
+    <!--学生所有作业课堂首页-->
+    <dubbo:reference id="studentAllSubjectExamService" interface="com.koolearn.cloud.student.StudentAllSubjectExamService"/>
+
+    <!-- 小学说课接口-->
+    <dubbo:reference id="interfaceCloudService" interface="com.koolearn.library.maintain.remote.service.InterfaceCloudService" registry="libraryZookeeper" check="false"/>
+    <dubbo:reference id="productService" interface="com.koolearn.library.maintain.product.service.ProductService" registry="libraryZookeeper" check="false"/>
+    <dubbo:reference id="listenService" interface="com.koolearn.library.maintain.listen.service.ListenService" registry="libraryZookeeper" check="false"/>
+    <dubbo:reference id="frontCategoryService" interface="com.koolearn.library.maintain.frontCategory.service.FrontCategoryService" registry="libraryZookeeper" check="false"/>
+
+    <!--&lt;!&ndash;课堂财务订单接口&ndash;&gt;-->
+    <!--<dubbo:reference id="orderDubboService" interface="com.koolearn.dubbo.share.service.order.OrderDubboService" url="dubbo://10.155.20.77:20881/" check="false"/>-->
+
+
+</beans>

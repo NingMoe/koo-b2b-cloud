@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+/*
+预览试题 qt.css没有 main.css copy出来的
+*/
+/*
+.tb1{display:inline-block;vertical-align:middle;text-align:center;padding:0 3px;height:14px;background:rgb(86,174,0);color:#fff;font-weight:bold;margin:0 10px;}
+*/
+.tb1{vertical-align:middle;text-align:center;padding:0 3px;height:14px;background:rgb(86,174,0);color:#fff;font-weight:bold;margin:0 10px;}
+.tb2{background:rgb(145,220,71);margin:0 3px;}
+.tb3{background:url(img/tb3.png) center center no-repeat;margin:0 3px;display:inline-block;vertical-align:top;width:12px;height:14px;}
+.tb4{background:#FFE6E6;}
+.tb4a{height:14px;width:14px;display:inline-block;margin-right:8px;vertical-align:middle;background:url(http://images.koolearn.com/www09/class/newCenter/zwbz.gif)}

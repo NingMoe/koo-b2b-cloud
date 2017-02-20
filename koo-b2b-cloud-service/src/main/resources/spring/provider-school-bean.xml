@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:koo="http://www.koolearn.com/schema/test/koo" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/task
+		http://www.springframework.org/schema/task/spring-task-3.0.xsd
+        http://www.koolearn.com/schema/test/koo
+        http://www.koolearn.com/schema/test/koo.xsd"
+       default-autowire="byName" default-lazy-init="false">
+
+	<!-- 学校端首页查询 -->
+	<bean id="homePageService" class="com.koolearn.cloud.school.homePage.HomePageServiceImpl"/>
+	<dubbo:service interface="com.koolearn.cloud.school.homePage.HomePageService" ref="homePageService" protocol="dubbo"/>
+	<koo:dao id="homePageDao" interface="com.koolearn.cloud.school.homePage.dao.HomePageDao"/>
+    <!--学校班级管理-->
+    <bean id="classesManageService" class="com.koolearn.cloud.school.schooclasses.ClassesManageServiceImpl"/>
+    <dubbo:service interface="com.koolearn.cloud.school.schooclasses.ClassesManageService" ref="classesManageService" protocol="dubbo"/>
+    <koo:dao id="classesManageDao" interface="com.koolearn.cloud.school.schooclasses.dao.ClassesManageDao"/>
+    <bean id="classesManageDaoBuilder" class="com.koolearn.cloud.school.schooclasses.dao.builder.ClassesManageDaoBuilder"/>
+    <!-- 班级公共服务-->
+    <bean id="schoolCommonService" class="com.koolearn.cloud.school.Common.SchoolCommonServiceImpl">
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.school.common.SchoolCommonService" ref="schoolCommonService" protocol="dubbo"/>
+    <koo:dao id="schoolCommonDao" interface="com.koolearn.cloud.school.Common.dao.SchoolCommonDao"/>
+    <!-- 学校教师服务-->
+    <bean id="teacherManageService" class="com.koolearn.cloud.school.teacher.TeacherManageServiceImpl">
+        <property name="iUserService" ref="iUserService"></property>
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.school.teacher.TeacherManageService" ref="teacherManageService" protocol="dubbo"/>
+    <koo:dao id="teacherManageDao" interface="com.koolearn.cloud.school.teacher.dao.TeacherManageDao"/>
+    <bean id="teacherManageDaoBuilder" class="com.koolearn.cloud.school.teacher.dao.builder.TeacherManageDaoBuilder"/>
+    <!-- 学校学生公共服务-->
+    <bean id="schoolStudentManageService" class="com.koolearn.cloud.school.student.SchoolStudentManageServiceImpl"/>
+    <dubbo:service interface="com.koolearn.cloud.school.student.SchoolStudentManageService" ref="schoolStudentManageService" protocol="dubbo"/>
+    <koo:dao id="schoolStudentManageDao" interface="com.koolearn.cloud.school.student.dao.SchoolStudentManageDao"/>
+    <bean id="schoolStudentManageDaoBuilder" class="com.koolearn.cloud.school.student.dao.builder.SchoolStudentManageDaoBuilder"/>
+    <!-- 学校管理用户权限查询服务-->
+    <bean id="authoritySchoolService" class="com.koolearn.cloud.school.authoritySchool.AuthoritySchoolServiceImpl"/>
+    <dubbo:service interface="com.koolearn.cloud.school.authorityschool.AuthoritySchoolService" ref="authoritySchoolService" protocol="dubbo"/>
+    <koo:dao id="authoritySchoolDao" interface="com.koolearn.cloud.school.authoritySchool.dao.AuthoritySchoolDao"/>
+    <!--验证SSO邮箱和手机存在性 -->
+    <dubbo:reference id="iUserService" interface="com.koolearn.sso.service.IUserService" timeout="6000" registry="kooZookeeper"  check="false"/>
+
+    <!-- 学校信息维护管理服务-->
+    <bean id="schoolManageService" class="com.koolearn.cloud.school.schoolmanage.SchoolManageServiceImpl">
+        <property name="teacherAddClassService" ref="teacherAddClassService" ></property>
+    </bean>
+    <dubbo:service interface="com.koolearn.cloud.school.schoolmanage.SchoolManageService" ref="schoolManageService" protocol="dubbo"/>
+    <koo:dao id="schoolManageDao" interface="com.koolearn.cloud.school.schoolmanage.dao.SchoolManageDao"/>
+
+
+
+
+
+
+
+
+
+
+
+
+</beans>

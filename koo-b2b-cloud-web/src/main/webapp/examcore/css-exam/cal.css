@@ -1,0 +1,16 @@
+.cal{border:1px solid rgb(138,188,118);width:185px;padding:1px;background:#fff;display: none;position: absolute;}
+.cal_1{border:3px solid rgb(172,215,153);background:#fff;}
+.cal_1 h2{height:28px;line-height:28px;padding:0 5px;background:rgb(173,215,154);color:#111;}
+.c_ct{background:#fff;padding:10px;}
+.c_ct .txt1{border:1px solid rgb(127,158,184);width:152px;height:18px;}
+.c_ct ul li,.cal_fc input{background:url(img/col.gif) no-repeat;}
+.c_ct ul li{background-position:-158px 0;height:27px;line-height:27px;width:27px;text-align:center;margin-right:5px;margin-top:5px;}
+.c_ct ul li.li_last{margin-right:0;}
+.c_ct ul li a{color:#405170;display:block;width:27px;height:27px;}
+.c_ct ul li a:hover{text-decoration:none;}
+.cal_fc{background:#f2f2f2;border-top:1px solid #d6d6d6;padding:8px 0;text-align:center;margin-top:5px;}
+.cal_fc input{background-position:0 0;color:#111;height:27px;width:155px;border:none;}
+.c_ct ul{margin-top:5px;}
+.c_ct ul li{float:left;display:inline;}
+.cal .close_c{float:right;color:#111;font-size:16px;}
+.cal .close_c:hover{text-decoration:none;}

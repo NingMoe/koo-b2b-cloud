@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:sec="http://www.springframework.org/schema/security"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.4.xsd">
+
+    <beans:bean id="loggerListener" class="com.koolearn.security.client.utils.listener.LoggerListener"/>
+    <beans:bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <beans:property name="basename" value="org/springframework/security/messages"/>
+    </beans:bean>
+
+    <http auto-config='true' entry-point-ref="casProcessingFilterEntryPoint">
+        <sec:intercept-url pattern="/security/login/login_success.jsp" access="ROLE_LOGINED"/>
+        <sec:intercept-url pattern="/security/secure/**" access="ROLE_LOGINED"/>
+        <sec:intercept-url pattern="/img/**" filters="none"/>
+        <sec:intercept-url pattern="/**/*.js" filters="none"/>
+        <sec:intercept-url pattern="/**/*.ico" filters="none"/>
+        <sec:intercept-url pattern="/**/*.css" filters="none"/>
+        <sec:intercept-url pattern="/**/*.gif" filters="none"/>
+        <sec:intercept-url pattern="/**/*.jpg" filters="none"/>
+        <sec:intercept-url pattern="/**/*.jpeg" filters="none"/>
+        <sec:intercept-url pattern="/**/*.png" filters="none"/>
+        <sec:intercept-url pattern="/**/*.swf" filters="none"/>
+        <sec:intercept-url pattern="/security/test/filter_test_done.jsp" filters="none"/>
+
+        <sec:intercept-url pattern="/remoteService" filters="none"/>
+        <sec:intercept-url pattern="/tagTemplates/**/*" filters="none"/>
+        <sec:intercept-url pattern="/channel/**/*" filters="none"/>
+        <!--<sec:intercept-url pattern="/**/**" filters="none" />-->
+        <sec:intercept-url pattern="/demo/**" filters="none"/>
+        <logout logout-success-url="/security/login/login_success.jsp"/>
+        <anonymous username="Guest"/>
+    </http>
+
+    <sec:authentication-manager alias="authenticationManager"/>
+
+    <beans:bean id="casProcessingFilter"
+                class="org.springframework.security.ui.cas.CasProcessingFilter">
+        <sec:custom-filter after="CAS_PROCESSING_FILTER"/>
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+        <beans:property name="authenticationFailureUrl" value="/security/login/login_failure.jsp"/>
+        <beans:property name="defaultTargetUrl" value="/security/login/login_success.jsp"/>
+        <beans:property name="proxyGrantingTicketStorage" ref="proxyGrantingTicketStorage2"/>
+        <beans:property name="proxyReceptorUrl" value="/security/secure/receptor"/>
+    </beans:bean>
+
+    <beans:bean id="casProcessingFilterEntryPoint"
+                class="com.koolearn.security.client.core.MyCasProcessingFilterEntryPoint">
+        <beans:property name="loginUrl" value="${casDomain}/login"/>
+        <beans:property name="serviceProperties" ref="serviceProperties"/>
+    </beans:bean>
+
+    <beans:bean id="casAuthenticationProvider"
+                class="org.springframework.security.providers.cas.CasAuthenticationProvider">
+        <sec:custom-authentication-provider/>
+        <beans:property name="userDetailsService" ref="userDetailService"/>
+        <beans:property name="serviceProperties" ref="serviceProperties"/>
+        <beans:property name="ticketValidator">
+            <beans:bean class="com.koolearn.security.client.core.MyCas20ServiceTicketValidatorProxy">
+                <beans:constructor-arg index="0" value="${casDomain}"/>
+                <beans:property name="proxyGrantingTicketStorage" ref="proxyGrantingTicketStorage2"/>
+                <beans:property name="proxyCallbackUrl" value="/security/secure/receptor"/>
+            </beans:bean>
+        </beans:property>
+        <beans:property name="key" value="an_id_for_this_auth_provider_only"/>
+    </beans:bean>
+    <beans:bean id="proxyGrantingTicketStorage2" class="org.jasig.cas.client.proxy.ProxyGrantingTicketStorageImpl"/>
+
+    <beans:bean id="serviceProperties" class="org.springframework.security.ui.cas.ServiceProperties">
+        <beans:property name="service" value="/security/j_spring_cas_security_check"/>
+        <beans:property name="sendRenew" value="false"/>
+    </beans:bean>
+
+    <authentication-provider user-service-ref="userDetailService">
+        <password-encoder hash="md5"/>
+    </authentication-provider>
+
+    <beans:bean id="accessDecisionManager" class="org.springframework.security.vote.AffirmativeBased">
+        <beans:property name="allowIfAllAbstainDecisions" value="false"/>
+        <beans:property name="decisionVoters">
+            <beans:list>
+                <beans:bean class="org.springframework.security.vote.RoleVoter"/>
+                <beans:bean class="org.springframework.security.vote.AuthenticatedVoter"/>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
+
+    <beans:bean id="resourceSecurityInterceptor"
+                class="org.springframework.security.intercept.web.FilterSecurityInterceptor">
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+        <beans:property name="accessDecisionManager" ref="accessDecisionManager"/>
+        <beans:property name="objectDefinitionSource" ref="secureResourceFilterInvocationDefinitionSource"/>
+        <beans:property name="observeOncePerRequest" value="false"/>
+        <custom-filter after="LAST"/>
+    </beans:bean>
+
+    <beans:bean id="secureResourceFilterInvocationDefinitionSource"
+                class="com.koolearn.security.client.core.MyDefinitionSource"/>
+</beans:beans>
+<!--
+
+0.web pom 配置 koo-security-parent
+1.web.xml配置seutity 并 加载 resources/security/下两个配置文件
+3.zookeeper配置
+    casDomain =https://cas-sso.neibu.koolearn.com:8443
+    cas_loginUrl = https://cas-sso.neibu.koolearn.com:8443/login
+    cas_validateUrl = https://cas-sso.neibu.koolearn.com:8443/serviceValidate
+    cas_serverName = cloud.trunk.koolearn.com
+    cas_appId = 208
+    hosts.security=http://security.trunk.koolearn.com
+    hosts.domain =http://cloud.trunk.koolearn.com
+-->

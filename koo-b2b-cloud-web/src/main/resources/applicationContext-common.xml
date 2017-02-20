@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:koo="http://www.koolearn.com/schema/test/koo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.koolearn.com/schema/test/koo
+        http://www.koolearn.com/schema/test/koo.xsd"
+	default-autowire="byName" default-lazy-init="false">
+    <bean id="placeholderConfig" class="com.koolearn.cloud.SystemGlobalsPropertyPlaceholderConfigurer"/>
+    <!--配置前端资源服务 服务在zk1集群-->
+    <dubbo:reference id="feVersionService" registry="klb" interface="com.koolearn.common.assets.service.IFEVersionService" check="false"/>
+    <bean id="springContextUtils" class="com.koolearn.framework.common.utils.spring.SpringContextUtils" depends-on="redisClient"></bean>
+    <!--数据字典工具类-->
+    <bean id="dataDictionaryUtil" class="com.koolearn.cloud.util.DataDictionaryUtil" depends-on="springContextUtils" />
+	<!--学科学段工具类-->
+	<bean id="dataSelectUtil" class="com.koolearn.cloud.util.DataSelectUtil" depends-on="springContextUtils" />
+	<!--klb工具类-->
+    <bean id="klbTagsUtil" class="com.koolearn.cloud.util.KlbTagsUtil" depends-on="dataDictionaryUtil" />
+    <!--KLB服务接口-->
+    <dubbo:reference  registry="klb" id="tagsService" timeout="6000"  interface="com.koolearn.klb.tags.service.TagsService" />
+    <dubbo:reference registry="klb" id="tagsDescService" timeout="6000"  interface="com.koolearn.klb.tags.service.TagsDescService" />
+    <!--数据字典接口-->
+    <dubbo:reference id="dictionaryService" interface="com.koolearn.cloud.dictionary.service.DictionaryService" />
+
+    <!--配置Redis缓存-->
+
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxActive" value="500" />
+        <property name="maxIdle" value="500" />
+        <property name="maxWait" value="60000" />
+        <property name="testOnBorrow" value="false" />
+    </bean>
+    <bean id="serializer" class="com.koolearn.framework.redis.client.HessianRedisSerializer" />
+    <bean id="redisClient" class="com.koolearn.framework.redis.client.KooJedisClient"
+          init-method="init" destroy-method="destroy">
+        <property name="prefix" value="${redisKey}"></property>
+        <property name="config" ref="jedisPoolConfig"></property>
+        <property name="serializer" ref="serializer"></property>
+        <property name="address" value="${redisAddress}"></property>
+        <property name="timeOut" value="1000000"></property>
+    </bean>
+
+
+
+</beans>
